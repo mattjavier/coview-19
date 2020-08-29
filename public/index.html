@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- our css -->
+    <link rel="stylesheet" href="./assets/style.css">
+  <title>CoView-19 - LogIn</title>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link disabled" href="./lib/home.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="./lib/viewReviews.html">View Reviews</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="./lib/writeReview.html">Write a Review</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="./lib/about.html">About Us</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Sign In</h1>
+    <!-- sign in form -->
+    <form>
+      <!-- username field -->
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter Username">
+      </div>
+
+      <!-- password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+      </div>
+
+      <div class="row">
+        <!-- submit button -->
+        <div class="col-2">
+          <button id="signIn" type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+
+        <!-- log in modal -->
+        <div class="col-2">
+          <!-- Button to trigger modal -->
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+            Create Log In
+          </button>
+
+          <!-- Modal Window -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                
+                <!-- modal header -->
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create Log In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!-- content of modal -->
+                <div class="modal-body">
+                  <form>
+                    <!-- create username field -->
+                    <div class="form-group">
+                      <label for="createUsername">User Name</label>
+                      <input type="text" class="form-control" id="createUsername" placeholder="Enter Username">
+                      <small id="userHelp" class="form-text text-muted">Enter an alphanumeric username with # - # characters.</small>
+                    </div>
+                  
+                    <!-- password field -->
+                    <div class="form-group">
+                      <label for="createPassword">Password</label>
+                      <input type="password" class="form-control" id="createPassword" placeholder="Password">
+                      <small id="passwordHelp" class="form-text text-muted">Enter an alphanumeric password with # - # characters.</small>
+                    </div>
+                <!-- </div> -->
+
+                <div class="modal-footer">
+                  <!-- close button -->
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <!-- create log in button -->
+                  <button type="button" class="btn btn-primary">Create</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+  </main>
+
+  <!-- Javascript -->
+  <!-- bootstrap js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <!-- our JS -->
+    <script src="./assets/app.js"></script>
+</body>
+
+</html>
