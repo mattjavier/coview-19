@@ -34,6 +34,179 @@
   <main class="container">
     <h1>Write a Review</h1>
 
+    <form>
+
+      <div class="form-group row">
+        <label for="businessName" class="col-sm-2 col-form-label">Business Name:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="businessType" class="col-sm-2 col-form-label">Business Type:</label>
+        <div class="col-sm-4">
+          <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
+          <select class="form-control" id="businessType">
+            <option selected>Choose...</option>
+            <option>Populate</option>
+            <option>With</option>
+            <option>Business</option>
+            <option>Types</option>
+            <option>Using</option>
+            <option>Javascript</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div>
+
+        <p>Where is this business located?</p>
+
+        <div class="form-group row">
+          <label for="city" class="col-sm-2 col-form-label">City:</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="city" placeholder="City Name">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="state" class="col-sm-2 col-form-label">State:</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="state">
+              <option selected>Choose...</option>
+              <option>AL</option>
+              <option>AK</option>
+              <option>AZ</option>
+              <option>AR</option>
+              <option>CA</option>
+              <option>CO</option>
+              <option>CT</option>
+              <option>DE</option>
+              <option>FL</option>
+              <option>GA</option>
+              <option>HI</option>
+              <option>ID</option>
+              <option>IL</option>
+              <option>IN</option>
+              <option>IA</option>
+              <option>KS</option>
+              <option>KY</option>
+              <option>LA</option>
+              <option>ME</option>
+              <option>MD</option>
+              <option>MA</option>
+              <option>MI</option>
+              <option>MN</option>
+              <option>MS</option>
+              <option>MO</option>
+              <option>MT</option>
+              <option>NE</option>
+              <option>NV</option>
+              <option>NH</option>
+              <option>NJ</option>
+              <option>NM</option>
+              <option>NY</option>
+              <option>NC</option>
+              <option>ND</option>
+              <option>OH</option>
+              <option>OK</option>
+              <option>OR</option>
+              <option>PA</option>
+              <option>RI</option>
+              <option>SC</option>
+              <option>SD</option>
+              <option>TN</option>
+              <option>TX</option>
+              <option>UT</option>
+              <option>VT</option>
+              <option>VA</option>
+              <option>WA</option>
+              <option>WV</option>
+              <option>WI</option>
+              <option>WY</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p>Rate this business on their level of compliance with prevention recommendations.</p>
+        <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
+
+        <div class="form-group row">
+          <label for="maskUse" class="col-sm-2 col-form-label">Mask use:</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="maskUse">
+              <option selected>Choose...(these will be stars later)</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="socialDistancing" class="col-sm-2 col-form-label">Social Distancing:</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="socialDistancing">
+              <option selected>Choose...(these will be stars later)</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="sanitization" class="col-sm-2 col-form-label">Sanitization:</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="sanitization">
+              <option selected>Choose...(these will be stars later)</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="maskUse" class="col-sm-2 col-form-label">Overall:</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="maskUse">
+              <option selected>Choose...(these will be stars later)</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <label for="comments" class="col-sm-2 col-form-label">Comments:</label>
+        <div class="col-sm-6">
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+
+
+
   </main>
 
   <!-- Javascript -->
