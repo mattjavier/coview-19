@@ -7,6 +7,9 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- font awesome cdn (for icons) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <!-- our css -->
   <link rel="stylesheet" href="../assets/viewReviews.css">
   <title>CoView-19 - View Reviews</title>
@@ -33,6 +36,54 @@
 
   <main class="container">
     <h1>View Reviews</h1>
+
+    <div class="col-sm-12 col-md-4">
+      <label class="sr-only" for="inlineFormInputGroup">Search Business Name</label>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Business Name">
+        <div class="input-group-append">
+          <div id="srcBusiness" class="input-group-text btn btn-primary"><i class="fas fa-search"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- no results modal -->
+    <div class="col-2">
+      <!-- Button to trigger modal --- can we remove the button and instead call it by the "noResultsModal" id when a search doesn't yield any results?? -->
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#noResultsModal">
+        Temporary Button -- No results modal
+      </button>
+
+      <!-- Modal Window -->
+      <div class="modal fade" id="noResultsModal" tabindex="-1" role="dialog" aria-labelledby="noResultsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <!-- modal header -->
+            <div id="noResults" class="modal-header bg-warning">
+              <h5 class="modal-title" id="noResultsModalLabel">Error: No results</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- content of modal -->
+            <div class="modal-body">
+              <p>This business has not yet been reviewed by any user.</p>
+              <p>Would you like to write a review for this business?</p>
+            </div>
+
+            <div class="modal-footer">
+              <!-- close button -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <!-- create log in button -->
+              <button type="button" class="btn btn-primary">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
   </main>
 
