@@ -10,27 +10,41 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- our css -->
-  <link rel="stylesheet" href="../assets/about.css">
-  <title>CoView-19 - About Us</title>
+  <link rel="stylesheet" href="../assets/global.css">
+  <link rel="stylesheet" href="../assets/writeReview.css">
+  <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+  <title>CoView-19 | About</title>
 </head>
 
 <body>
   <!-- nav bar -->
-  <nav class="bg-light">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="./home.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./viewReviews.html">View Reviews</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./writeReview.html">Write a Review</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active text-success" href="./about.html">About Us</a>
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./viewReviews.html">View Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./writeReview.html">Write a Review</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-danger" href="./about.html">About<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Sign In</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 
   <main class="container">
@@ -79,6 +93,15 @@
       </div>
     </div>
 
+    <h1>About This App</h1>
+    <p>General explanation of app.</p>
+    <p>Link to github repo?</p>
+    <p>Development Tools:</p>
+    <ul>
+      <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+      <li><a href="https://fontawesome.com/">Font Awesome</a></li>
+      <li><a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a></li>
+    </ul>
 
   </main>
 
