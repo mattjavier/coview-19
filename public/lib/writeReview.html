@@ -12,18 +12,20 @@
   <!-- font awesome cdn -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
     <!-- our css -->
   <link rel="stylesheet" href="../assets/global.css">
   <link rel="stylesheet" href="../assets/writeReview.css">
   <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-  <title>CoView-19 | Write a Review</title>
+  <title>COVIEW-19 | Write a Review</title>
 </head>
 
 <body>
   <!-- nav bar -->
   <nav class="navbar navbar-expand-md navbar-dark text-light bg-dark">
-    <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
+    <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> COVIEW-19</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -52,25 +54,28 @@
 
 
 
-
+<div class="jumbotron jumbotron-fluid text-light">
+  <h1 class="display-4">Write a Review</h1>
+  <p class="lead">Describe what you've observed for COVID-19 compliance at a business you have frequented recently.</p>
+</div>
 
 
 
   <main class="container">
-    <h1 class="text-light">Write a Review</h1>
+    <!-- <h1 class="text-light">Write a Review</h1> -->
 
-    <form class="col-12 col-md-9 text-light">
-
-      <div class="form-group row">
-        <label for="businessName" class="col-sm-2 col-form-label">Business Name:</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" id="businessName" placeholder="Business Name">
-        </div>
+  <form class="col-12 col-md-9 text-light">
+    
+    <div class="form-group row">
+      <label for="businessName" class="col-sm-2 col-form-label">Business Name:</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="businessName" placeholder="Business Name">
       </div>
-
-      <div class="form-group row">
-        <label for="businessType" class="col-sm-2 col-form-label">Business Type:</label>
-        <div class="col-sm-4">
+    </div>
+    
+    <div class="form-group row">
+      <label for="businessType" class="col-sm-2 col-form-label">Business Type:</label>
+      <div class="col-sm-4">
           <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
           <select class="form-control" id="businessType">
             <option selected>Choose...</option>
@@ -85,9 +90,9 @@
         </div>
       </div>
       <div>
-
+        
         <p>Where is this business located?</p>
-
+        
         <div class="form-group row">
           <label for="city" class="col-sm-2 col-form-label">City:</label>
           <div class="col-sm-4">
@@ -154,11 +159,11 @@
           </div>
         </div>
       </div>
-
+      
       <div>
-        <p>Rate this business on the degree to which their employees and customers comply with the <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html" target="_blank">prevention recommendations</a> outlined by the CDC and other local authorities.</p>
+        <p>Rate this business on the degree to which their employees and customers comply with the <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html" class="text-danger" target="_blank">prevention recommendations</a> outlined by the CDC and other local authorities.</p>
         <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
-
+        
         <div class="form-group row">
           <label for="maskUse" class="col-sm-2 col-form-label">Mask use:</label>
           <div class="col-sm-4">
@@ -172,7 +177,7 @@
             </select>
           </div>
         </div>
-
+        
         <div class="form-group row">
           <label for="socialDistancing" class="col-sm-2 col-form-label">Social Distancing:</label>
           <div class="col-sm-4">
@@ -200,7 +205,7 @@
             </select>
           </div>
         </div>
-
+        
         <div class="form-group row">
           <label for="maskUse" class="col-sm-2 col-form-label">Overall:</label>
           <div class="col-sm-4">
@@ -214,9 +219,9 @@
             </select>
           </div>
         </div>
-
+        
       </div>
-
+      
       <div class="form-group row">
         <label for="comments" class="col-sm-2 col-form-label">Comments:</label>
         <div class="col-sm-6">
@@ -224,14 +229,14 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <a type="submit" class="btn btn-custom">Submit</a>
     </form>
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
   </main>
   <footer class="text-light text-center">
     &copy; 2020 | U.C. Irvine Coding Boot Camp

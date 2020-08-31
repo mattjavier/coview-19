@@ -1,13 +1,3 @@
-.jumbotron {
-  background-image: url('https://ewscripps.brightspotcdn.com/dims4/default/26a16d0/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F3f%2F1d%2F3d911b8a47088beaf348069c550b%2Fcoronavirus-background-1280x720-1.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  text-align: center;
-  text-shadow: 1.5px 1.5px #000000;
-  padding: 15px 20px;
-}
-
 form {
   margin: 0px;
   width: 100%;
