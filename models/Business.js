@@ -16,6 +16,7 @@ Business.init({
     type: DataTypes.FLOAT,
     allowNull: false
   },
+<<<<<<< HEAD
   averageMask: {
     type: DataTypes.FLOAT,
     allowNull: false
@@ -25,6 +26,17 @@ Business.init({
     allowNull: false
   },
   averageSocialdistance: {
+=======
+  avgMaskRating: {
+    type: DataTypes.FLOAT,
+    allowNull: false
+  },
+  avgSanitation: {
+    type: DataTypes.FLOAT,
+    allowNull: false
+  },
+  avgSocialDistance: {
+>>>>>>> 08251c894b5e549afcb54adef6879117b15e59a3
     type: DataTypes.FLOAT,
     allowNull: false
   }

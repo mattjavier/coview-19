@@ -24,17 +24,14 @@ Rating.init({
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  socialdistanceRating: {
+  socialDistanceRating: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
   comment: {
-    text: DataTypes.FLOAT,
+    type: DataTypes.STRING,
     allowNull: false
   }
-
-
-
-}, { sequelize, modelName: 'rating' })
+}, { sequelize, modelName: 'type' })
 
 module.exports = Rating

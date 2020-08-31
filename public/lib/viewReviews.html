@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="../assets/reset.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <!-- our css -->
+  <link rel="stylesheet" href="../assets/global.css">
+  <link rel="stylesheet" href="../assets/viewReviews.css">
+  <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+  <title>CoView-19 | View Reviews</title>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark text-light bg-dark">
+    <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./home.html">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-danger" href="./viewReviews.html">View Reviews<span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./writeReview.html">Write a Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Sign In</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 class="text-light">View Reviews</h1>
+
+    <div class="col-sm-12 col-md-4">
+      <label class="sr-only" for="businessName">Search Business Name</label>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+        <div class="input-group-append">
+          <div id="srcBusiness" class="input-group-text btn btn-primary"><i class="fas fa-search"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- no results modal -->
+    <div class="col-2">
+      <!-- Button to trigger modal --- can we remove the button and instead call it by the "noResultsModal" id when a search doesn't yield any results?? -->
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#noResultsModal">
+        Temporary Button -- No results modal
+      </button>
+
+      <!-- Modal Window -->
+      <div class="modal fade" id="noResultsModal" tabindex="-1" role="dialog" aria-labelledby="noResultsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <!-- modal header -->
+            <div id="noResults" class="modal-header bg-warning">
+              <h5 class="modal-title" id="noResultsModalLabel">Error: No results</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- content of modal -->
+            <div class="modal-body">
+              <p>This business has not yet been reviewed by any user.</p>
+              <p>Would you like to write a review for this business?</p>
+            </div>
+
+            <div class="modal-footer">
+              <!-- close button -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <!-- create log in button -->
+              <a class="btn btn-primary" href="./writeReview.html" role="button">Yes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </main>
+  <footer class="text-light text-center">
+    &copy; 2020 | U.C. Irvine Coding Boot Camp
+  </footer>
+  <!-- Javascript -->
+  <!-- bootstrap js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- our JS -->
+  <script src="../assets/viewReviews.js"></script>
+</body>
+
+</html>
