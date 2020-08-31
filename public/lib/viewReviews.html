@@ -9,9 +9,9 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <!-- our css -->
   <link rel="stylesheet" href="../assets/global.css">
   <link rel="stylesheet" href="../assets/viewReviews.css">
@@ -23,7 +23,8 @@
 <body>
   <!-- nav bar -->
   <nav class="navbar navbar-expand-md navbar-dark text-light bg-dark">
-    <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
+    <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png"
+        alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,20 +51,490 @@
       </ul>
     </div>
   </nav>
+  <div class="jumbotron jumbotron-fluid text-light">
+    <h1 class="display-4">View Reviews</h1>
+    <p class="lead">Search a buisness name to see what others have experienced.</p>
+    <div class="row justify-content-center">
 
-  <main class="container">
-    <h1 class="text-light">View Reviews</h1>
-
-    <div class="col-sm-12 col-md-4">
-      <label class="sr-only" for="businessName">Search Business Name</label>
-      <div class="input-group mb-2">
-        <input type="text" class="form-control" id="businessName" placeholder="Business Name">
-        <div class="input-group-append">
-          <div id="srcBusiness" class="input-group-text btn btn-primary"><i class="fas fa-search"></i></div>
+      <div class="col-sm-12 col-md-4">
+        <label class="sr-only" for="businessName">Search Business Name</label>
+        <div class="input-group mb-2">
+          <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+          <div class="input-group-append">
+            <div id="srcBusiness" class="input-group-text btn btn-primary"><i class="fas fa-search"></i></div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
+
+  <main class="container">
+
+    <!-- results for a single business -->
+    <div class="card business">
+      <h5 class="card-header bg-danger">Business Name (Anaheim, CA)</h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title">Retail</h5>
+          </div>
+          <div class="col-6 text-right">
+            <p class="card-title">Reviews: 6</p>
+          </div>
+        </div>
+        <p class="card-text">
+        <div class="row">
+
+          <div class="col-12 col-sm-4">
+            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+          <div class="col-12 col-sm-4">
+            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+          <div class="col-12 col-sm-4">
+            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+        </div>
+        </p>
+        <!-- write review modal -->
+        <div class="col-2">
+          <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal">
+            Write Review
+          </button>
+
+          <!-- Modal Window -->
+          <div class="modal fade" id="writeReviewModal" tabindex="-1" role="dialog"
+            aria-labelledby="writeReviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+
+                <!-- modal header -->
+                <div id="writeReview" class="modal-header bg-danger">
+                  <h5 class="modal-title" id="writeReviewModalLabel">Write Review</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!-- content of modal -->
+                <div class="modal-body">
+                  <form>
+
+                    <div class="form-group row">
+                      <label for="businessName" class="col-sm-4 col-form-label">Business Name:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
+                      <div class="col-sm-6">
+                        <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
+                        <select class="form-control" id="businessType">
+                          <option selected>Choose...</option>
+                          <option>Populate</option>
+                          <option>With</option>
+                          <option>Business</option>
+                          <option>Types</option>
+                          <option>Using</option>
+                          <option>Javascript</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+
+                      <p>Where is this business located?</p>
+
+                      <div class="form-group row">
+                        <label for="city" class="col-sm-4 col-form-label">City:</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="city" placeholder="City Name">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="state" class="col-sm-4 col-form-label">State:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="state">
+                            <option selected>Choose...</option>
+                            <option>AL</option>
+                            <option>AK</option>
+                            <option>AZ</option>
+                            <option>AR</option>
+                            <option>CA</option>
+                            <option>CO</option>
+                            <option>CT</option>
+                            <option>DE</option>
+                            <option>FL</option>
+                            <option>GA</option>
+                            <option>HI</option>
+                            <option>ID</option>
+                            <option>IL</option>
+                            <option>IN</option>
+                            <option>IA</option>
+                            <option>KS</option>
+                            <option>KY</option>
+                            <option>LA</option>
+                            <option>ME</option>
+                            <option>MD</option>
+                            <option>MA</option>
+                            <option>MI</option>
+                            <option>MN</option>
+                            <option>MS</option>
+                            <option>MO</option>
+                            <option>MT</option>
+                            <option>NE</option>
+                            <option>NV</option>
+                            <option>NH</option>
+                            <option>NJ</option>
+                            <option>NM</option>
+                            <option>NY</option>
+                            <option>NC</option>
+                            <option>ND</option>
+                            <option>OH</option>
+                            <option>OK</option>
+                            <option>OR</option>
+                            <option>PA</option>
+                            <option>RI</option>
+                            <option>SC</option>
+                            <option>SD</option>
+                            <option>TN</option>
+                            <option>TX</option>
+                            <option>UT</option>
+                            <option>VT</option>
+                            <option>VA</option>
+                            <option>WA</option>
+                            <option>WV</option>
+                            <option>WI</option>
+                            <option>WY</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p>Rate this business on the degree to which their employees and customers comply with the <a
+                          href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
+                          target="_blank">prevention
+                          recommendations</a> outlined by the CDC and other local authorities.</p>
+                      <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
+
+                      <div class="form-group row">
+                        <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="maskUse">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="socialDistancing">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="sanitization">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="maskUse">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
+                      <div class="col-sm-8">
+                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="modal-footer">
+                  <!-- close button -->
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <!-- create log in button -->
+                  <a class="btn btn-custom" href="#" role="button">Submit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card business">
+      <h5 class="card-header bg-danger">Business Name (Irvine, CA)</h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title">Retail</h5>
+          </div>
+          <div class="col-6 text-right">
+            <p class="card-title">Reviews: 6</p>
+          </div>
+        </div>
+        <p class="card-text">
+        <div class="row">
+    
+          <div class="col-12 col-sm-4">
+            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+          <div class="col-12 col-sm-4">
+            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+          <div class="col-12 col-sm-4">
+            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+        </div>
+        </p>
+        <!-- write review modal -->
+        <div class="col-2">
+          <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal">
+            Write Review
+          </button>
+    
+          <!-- Modal Window -->
+          <div class="modal fade" id="writeReviewModal" tabindex="-1" role="dialog" aria-labelledby="writeReviewModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+    
+                <!-- modal header -->
+                <div id="writeReview" class="modal-header bg-danger">
+                  <h5 class="modal-title" id="writeReviewModalLabel">Write Review</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!-- content of modal -->
+                <div class="modal-body">
+                  <form>
+    
+                    <div class="form-group row">
+                      <label for="businessName" class="col-sm-4 col-form-label">Business Name:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+                      </div>
+                    </div>
+    
+                    <div class="form-group row">
+                      <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
+                      <div class="col-sm-6">
+                        <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
+                        <select class="form-control" id="businessType">
+                          <option selected>Choose...</option>
+                          <option>Populate</option>
+                          <option>With</option>
+                          <option>Business</option>
+                          <option>Types</option>
+                          <option>Using</option>
+                          <option>Javascript</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+    
+                      <p>Where is this business located?</p>
+    
+                      <div class="form-group row">
+                        <label for="city" class="col-sm-4 col-form-label">City:</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="city" placeholder="City Name">
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label for="state" class="col-sm-4 col-form-label">State:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="state">
+                            <option selected>Choose...</option>
+                            <option>AL</option>
+                            <option>AK</option>
+                            <option>AZ</option>
+                            <option>AR</option>
+                            <option>CA</option>
+                            <option>CO</option>
+                            <option>CT</option>
+                            <option>DE</option>
+                            <option>FL</option>
+                            <option>GA</option>
+                            <option>HI</option>
+                            <option>ID</option>
+                            <option>IL</option>
+                            <option>IN</option>
+                            <option>IA</option>
+                            <option>KS</option>
+                            <option>KY</option>
+                            <option>LA</option>
+                            <option>ME</option>
+                            <option>MD</option>
+                            <option>MA</option>
+                            <option>MI</option>
+                            <option>MN</option>
+                            <option>MS</option>
+                            <option>MO</option>
+                            <option>MT</option>
+                            <option>NE</option>
+                            <option>NV</option>
+                            <option>NH</option>
+                            <option>NJ</option>
+                            <option>NM</option>
+                            <option>NY</option>
+                            <option>NC</option>
+                            <option>ND</option>
+                            <option>OH</option>
+                            <option>OK</option>
+                            <option>OR</option>
+                            <option>PA</option>
+                            <option>RI</option>
+                            <option>SC</option>
+                            <option>SD</option>
+                            <option>TN</option>
+                            <option>TX</option>
+                            <option>UT</option>
+                            <option>VT</option>
+                            <option>VA</option>
+                            <option>WA</option>
+                            <option>WV</option>
+                            <option>WI</option>
+                            <option>WY</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div>
+                      <p>Rate this business on the degree to which their employees and customers comply with the <a
+                          href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
+                          target="_blank">prevention
+                          recommendations</a> outlined by the CDC and other local authorities.</p>
+                      <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
+    
+                      <div class="form-group row">
+                        <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="maskUse">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="socialDistancing">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="sanitization">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
+                        <div class="col-sm-6">
+                          <select class="form-control" id="maskUse">
+                            <option selected>Choose...(these will be stars later)</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+    
+                    </div>
+    
+                    <div class="form-group row">
+                      <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
+                      <div class="col-sm-8">
+                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+    
+                <div class="modal-footer">
+                  <!-- close button -->
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <!-- create log in button -->
+                  <a class="btn btn-custom" href="#" role="button">Submit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
     <!-- no results modal -->
     <div class="col-2">
       <!-- Button to trigger modal --- can we remove the button and instead call it by the "noResultsModal" id when a search doesn't yield any results?? -->
@@ -100,7 +571,7 @@
         </div>
       </div>
     </div>
-    
+
 
   </main>
   <footer class="text-light text-center">
