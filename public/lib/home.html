@@ -22,7 +22,7 @@
 
 <body>
   <!-- nav bar -->
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <nav id="nav" class="navbar navbar-expand-md navbar-dark text-light bg-dark">
     <a class="navbar-brand" href="./home.html"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,33 +50,36 @@
       </ul>
     </div>
   </nav>
-
-  <main class="container">
-    <h1>Get Started</h1>
-
-    <section>
-      <h2>What would you like to do?</h2>
-      <div class="row">
-        <!-- view reviews -->
-        <div class="col-md-3 col-sm-12">
-          <a class="btn btn-primary" href="./viewReviews.html" role="button">View Reviews</a>
-        </div>
-
-        <!-- write a review -->
-        <div class="col-md-3 col-sm-12">
-          <a class="btn btn-primary" href="./writeReview.html" role="button">Write a Review</a>
-        </div>
+<div class="jumbotron jumbotron-fluid text-light">
+    <h1 class="display-4">COVIEW-19</h1>
+    <p class="lead">Your place for tracking COVID-19 compliance at your local businesses.</p>
+    <h2>Get Started</h2>
+    <p>What would you like to do?</p>
+    <div class="row justify-content-center">
+      <!-- view reviews -->
+      <div class="col-md-2 col-6">
+        <a class="btn btn-custom" href="./viewReviews.html" role="button">View Reviews</a>
       </div>
-    </section>
+      
+      <!-- write a review -->
+      <div class="col-md-2 col-6">
+        <a class="btn btn-custom" href="./writeReview.html" role="button">Write a Review</a>
+      </div>
+  </div>
+  <p class="lead">
+    
+  </p>
+</div>
+  <main class="container">
 
     <!-- recommendations -->
     <section>
-      <h2>Current COVID-19 Recommendations</h2>
+      <h2 class="text-center text-light">Current COVID-19 Recommendations</h2>
 
       <div class="card-group">
 
         <!-- Mask use card -->
-        <div class="card">
+        <div class="card bg-light">
           <div class="card-img-top text-center"><i class="fas fa-head-side-mask fa-7x"></i></div>
           <div class="card-body">
             <h5 class="card-title">Mask Use</h5>
@@ -93,7 +96,7 @@
         </div>
 
         <!-- social distancing card -->
-        <div class="card">
+        <div class="card bg-light">
           <div class="card-img-top text-center"><i class="fas fa-people-arrows fa-7x"></i></div>
           <div class="card-body">
             <h5 class="card-title">Social Distancing</h5>
@@ -108,7 +111,7 @@
         </div>
 
         <!-- sanitization card -->
-        <div class="card">
+        <div class="card bg-light">
           <div class="card-img-top text-center"><i class="fas fa-hand-sparkles fa-7x"></i></div>
           <!-- other possible icons for this card -->
           <!-- <div class="card-img-top text-center"><i class="fas fa-hand-holding-water fa-7x"></i></div> -->
