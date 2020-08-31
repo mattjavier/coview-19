@@ -13,19 +13,19 @@ Rating.init({
     allowNull: false
   },
   overallRating: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   maskRating: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   sanitationRating: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   socialdistanceRating: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   comment: {

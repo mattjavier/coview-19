@@ -13,19 +13,19 @@ Business.init({
     allowNull: false
   },
   averageRating: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   averageMask: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   averageSanitation: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   averageSocialdistance: {
-    rating: DataTypes.FLOAT,
+    type: DataTypes.FLOAT,
     allowNull: false
   }
 }, { sequelize, modelName: 'business' })
