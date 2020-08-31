@@ -8,28 +8,28 @@ Rating.init({
     type: DataTypes.STRING,
     allowNull: false
   },
-  typeBusiness: {
+  type: {
     type: DataTypes.STRING,
     allowNull: false
   },
   overallRating: {
-    type: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
   maskRating: {
-    location: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
   sanitationRating: {
-    location: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
   socialdistanceRating: {
-    location: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
   comment: {
-    text: DataTypes.STRING,
+    text: DataTypes.FLOAT,
     allowNull: false
   }
 

@@ -8,24 +8,24 @@ Business.init({
     type: DataTypes.STRING,
     allowNull: false
   },
-  typeBusiness: {
+  type: {
     type: DataTypes.STRING,
     allowNull: false
   },
   averageRating: {
-    location: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
-  averageMaskRating: {
-    location: DataTypes.INTEGER,
+  averageMask: {
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
-  avberageSanitationRating: {
-    location: DataTypes.INTEGER,
+  averageSanitation: {
+    rating: DataTypes.FLOAT,
     allowNull: false
   },
-  averageSocialdistanceRating: {
-    location: DataTypes.INTEGER,
+  averageSocialdistance: {
+    rating: DataTypes.FLOAT,
     allowNull: false
   }
 }, { sequelize, modelName: 'business' })
