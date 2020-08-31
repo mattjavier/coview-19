@@ -8,6 +8,12 @@ router.get('/businesses', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// GET all businesses by location
+
+// GET all businesses by type
+
+// GET all businesses by location, type, name
+
 // POST new business
 router.post('/businesses', (req, res) => {
   Business.create(req.body)
@@ -25,13 +31,5 @@ router.put('/businesses/:id', (req, res) => {
     .then(() => res.sendStatus(200))
     .catch(err => console.log(err))
 })
-
-// GET avg rating
-
-// GET avg mask rating
-
-// GET avg sanitation rating
-
-// GET avg social distancing rating
 
 module.exports = router

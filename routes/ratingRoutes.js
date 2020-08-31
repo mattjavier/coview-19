@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Rating, User, Business } = require('../models')
+const sequelize = require('../db')
 
 // GET ratings
 router.get('/ratings', (req, res) => {
@@ -19,10 +20,17 @@ router.post('/ratings', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// GET ratings for one business
+// GET ratings for one business 
 router.get('/ratings/:businessId', (req, res) => {
-  Rating.findAll({ where: { businessId: req.params.businessId }, include: [Business, User] })
+  Rating.findOne({ where: { businessId: req.params.businessId }, include: [Business, User] })
     .then(ratings => res.json(ratings))
+    .catch(err => console.log(err))
+})
+
+// GET average ratings for businesses
+router.get('/ratings/avg/:businessId', (req, res) => {
+  sequelize.query(`SELECT AVG(overallRating) AS overall, AVG(maskRating) AS mask, AVG(sanitationRating) AS sanitation, AVG(socialDistanceRating) AS social FROM ratings WHERE businessId = ${req.params.businessId}`)
+    .then(res => console.log(res))
     .catch(err => console.log(err))
 })
 
