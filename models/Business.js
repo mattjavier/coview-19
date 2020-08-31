@@ -12,19 +12,19 @@ Business.init({
     type: DataTypes.STRING,
     allowNull: false
   },
-  overallRating: {
+  averageRating: {
     location: DataTypes.INTEGER,
     allowNull: false
   },
-  maskRating: {
+  averageMaskRating: {
     location: DataTypes.INTEGER,
     allowNull: false
   },
-  sanitationRating: {
+  avberageSanitationRating: {
     location: DataTypes.INTEGER,
     allowNull: false
   },
-  socialdistanceRating: {
+  averageSocialdistanceRating: {
     location: DataTypes.INTEGER,
     allowNull: false
   }

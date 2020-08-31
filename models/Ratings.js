@@ -28,8 +28,8 @@ Rating.init({
     location: DataTypes.INTEGER,
     allowNull: false
   },
-  username: {
-    location: DataTypes.STRING,
+  comment: {
+    text: DataTypes.STRING,
     allowNull: false
   }
 
