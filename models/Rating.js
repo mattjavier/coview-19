@@ -32,6 +32,6 @@ Rating.init({
     type: DataTypes.STRING,
     allowNull: false
   }
-}, { sequelize, modelName: 'type' })
+}, { sequelize, modelName: 'rating' })
 
 module.exports = Rating
