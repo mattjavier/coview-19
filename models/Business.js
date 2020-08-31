@@ -12,6 +12,14 @@ Business.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  city: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }, 
+  state: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   averageRating: {
     type: DataTypes.FLOAT,
     allowNull: false
