@@ -3,7 +3,7 @@ const { Rating, User, Business } = require('../models')
 
 // GET ratings
 router.get('/ratings', (req, res) => {
-  Rating.findAll({ include: [Business, Rating] })
+  Rating.findAll({ include: [Business, User] })
     .then(ratings => res.json(ratings))
     .catch(err => console.log(err))
 })
