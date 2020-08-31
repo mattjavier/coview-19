@@ -8,33 +8,30 @@ Rating.init({
     type: DataTypes.STRING,
     allowNull: false
   },
-  typeBusiness: {
+  type: {
     type: DataTypes.STRING,
     allowNull: false
   },
   overallRating: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   maskRating: {
-    location: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   sanitationRating: {
-    location: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false
   },
-  socialdistanceRating: {
-    location: DataTypes.INTEGER,
+  socialDistanceRating: {
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   comment: {
-    text: DataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   }
-
-
-
-}, { sequelize, modelName: 'rating' })
+}, { sequelize, modelName: 'type' })
 
 module.exports = Rating
