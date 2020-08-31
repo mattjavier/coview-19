@@ -1,0 +1,16 @@
+.btn {
+  white-space: normal;
+}
+
+h1, h2 {
+  margin-top: 20px;
+}
+
+.btn-custom {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+body {
+  background-color: #343a40;
+}
