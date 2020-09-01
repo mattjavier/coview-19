@@ -9,46 +9,28 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
   <!-- our css -->
   <link rel="stylesheet" href="./assets/global.css">
   <link rel="stylesheet" href="./assets/style.css">
   <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
   <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
-  <title>CoView-19 | Sign In</title>
+  <title>COVIEW-19 | Sign In</title>
 </head>
 
 <body>
   <!-- nav bar -->
   <nav class="navbar navbar-expand-md navbar-dark text-light bg-dark">
-    <a class="navbar-brand" href="./lib/home.html"><img src="./assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> CoView-19</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="./lib/home.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./lib/viewReviews.html">View Reviews</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./lib/writeReview.html">Write a Review</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./lib/about.html">About</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link text-danger" href="./index.html">Sign In<span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-    </div>
+    <a class="navbar-brand" href="#"><img src="./assets/images/favicon.png" alt="logo: red virus with a c on it"
+        height="25px"> COVIEW-19</a>
   </nav>
+
+
+
 
   <main class="container text-light">
     <h1>Sign In</h1>
@@ -66,60 +48,62 @@
         <input type="password" class="form-control col-8 col-sm-4 col-md-3" id="password" placeholder="Password">
       </div>
 
-      <div class="row">
+      <div class="col-8 col-sm-4 col-md-3 d-flex justify-content-between">
         <!-- submit button -->
-        <div class="col-2">
-          <button id="signIn" type="submit" class="btn btn-primary">Sign In</button>
-        </div>
+        <!-- <div class="col-2"> -->
+        <button id="signIn" type="submit" class="btn btn-danger">Sign In</button>
+        <!-- </div> -->
 
         <!-- log in modal -->
-        <div class="col-2">
-          <!-- Button to trigger modal -->
-          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#createLogInModal">
-            Create Log In
-          </button>
+        <!-- <div class="col-2"> -->
+        <!-- Button to trigger modal -->
+        <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#createLogInModal">
+          Create Log In
+        </button>
 
-          <!-- Modal Window -->
-          <div class="modal fade" id="createLogInModal" tabindex="-1" role="dialog" aria-labelledby="createLogInModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
+        <!-- Modal Window -->
+        <div class="modal fade" id="createLogInModal" tabindex="-1" role="dialog"
+          aria-labelledby="createLogInModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
-                <!-- modal header -->
-                <div class="modal-header">
-                  <h5 class="modal-title" id="createLogInModalLabel">Create Log In</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <!-- content of modal -->
-                <div class="modal-body">
-                  <form>
-                    <!-- create username field -->
-                    <div class="form-group">
-                      <label for="createUsername">User Name</label>
-                      <input type="text" class="form-control" id="createUsername" placeholder="Enter Username">
-                      <small id="userHelp" class="form-text text-muted">Enter an alphanumeric username with # - # characters.</small>
-                    </div>
+              <!-- modal header -->
+              <div class="modal-header">
+                <h5 class="modal-title" id="createLogInModalLabel">Create Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- content of modal -->
+              <div class="modal-body">
+                <form>
+                  <!-- create username field -->
+                  <div class="form-group">
+                    <label for="createUsername">User Name</label>
+                    <input type="text" class="form-control" id="createUsername" placeholder="Enter Username">
+                    <small id="userHelp" class="form-text text-muted">Enter an alphanumeric username with # - #
+                      characters.</small>
+                  </div>
 
-                    <!-- password field -->
-                    <div class="form-group">
-                      <label for="createPassword">Password</label>
-                      <input type="password" class="form-control" id="createPassword" placeholder="Password">
-                      <small id="passwordHelp" class="form-text text-muted">Enter an alphanumeric password with # - # characters.</small>
-                    </div>
-                </div>
+                  <!-- password field -->
+                  <div class="form-group">
+                    <label for="createPassword">Password</label>
+                    <input type="password" class="form-control" id="createPassword" placeholder="Password">
+                    <small id="passwordHelp" class="form-text text-muted">Enter an alphanumeric password with # - #
+                      characters.</small>
+                  </div>
+              </div>
 
-                <div class="modal-footer">
-                  <!-- close button -->
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <!-- create log in button -->
-                  <button type="button" class="btn btn-primary">Create</button>
-                </div>
+              <div class="modal-footer">
+                <!-- close button -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- create log in button -->
+                <button type="button" class="btn btn-primary">Create</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </form>
 
