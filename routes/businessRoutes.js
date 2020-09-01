@@ -8,11 +8,11 @@ router.get('/businesses', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// GET all businesses by location
+// GET all businesses by location ('/api/businesses/:city/:state)
 
-// GET all businesses by type
+// GET all businesses by type ('/api/businesses/:type)
 
-// GET all businesses by location, type, name
+// GET all businesses by location, type, name ('/api/businesses/:name/:type/:city/:state)
 
 // POST new business
 router.post('/businesses', (req, res) => {

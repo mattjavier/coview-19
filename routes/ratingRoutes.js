@@ -30,7 +30,7 @@ router.get('/ratings/:businessId', (req, res) => {
 // GET average ratings for businesses
 router.get('/ratings/avg/:businessId', (req, res) => {
   sequelize.query(`SELECT AVG(overallRating) AS overall, AVG(maskRating) AS mask, AVG(sanitationRating) AS sanitation, AVG(socialDistanceRating) AS social FROM ratings WHERE businessId = ${req.params.businessId}`)
-    .then(res => console.log(res))
+    .then(averages => res.json(averages))
     .catch(err => console.log(err))
 })
 
