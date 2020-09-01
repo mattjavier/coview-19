@@ -1,0 +1,17 @@
+form {
+  margin: 0px;
+  width: 100%;
+}
+
+.business {
+  margin-bottom: 32px;
+}
+
+.stars {
+  white-space: nowrap;
+}
+
+.card-header {
+  /* background-color: rgb(184, 184, 184); */
+  background-color: rgb(212, 212, 212);
+}
