@@ -12,8 +12,8 @@
   <!-- font awesome cdn -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
   <!-- our css -->
   <link rel="stylesheet" href="../assets/global.css">
   <link rel="stylesheet" href="../assets/viewReviews.css">
@@ -53,6 +53,8 @@
       </ul>
     </div>
   </nav>
+
+
   <div class="jumbotron jumbotron-fluid text-light">
     <h1 class="display-4">View Reviews</h1>
     <p class="lead">Search a buisness name to see what others have experienced.</p>
@@ -72,38 +74,12 @@
 
 
   <main class="container">
-
-    <!-- results for a single business -->
     <div class="card business">
-      <h5 class="card-header bg-danger">Business Name (Anaheim, CA)</h5>
+      <h5 class="card-header bg-danger">No reviews found</h5>
       <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <h5 class="card-title">Retail</h5>
-          </div>
-          <div class="col-6 text-right">
-            <p class="card-title">Reviews: 6</p>
-          </div>
-        </div>
-        <p class="card-text">
-        <div class="row">
-
-          <div class="col-12 col-sm-4">
-            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-        </div>
-        </p>
+        <h5 class="card-title">This business has not yet been reviewed by any user.</h5>
         <!-- write review modal -->
-        <div class="col-2">
+        <div>
           <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal">
             Write Review
           </button>
@@ -287,7 +263,8 @@
                     <div class="form-group row">
                       <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
                       <div class="col-sm-8">
-                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                        <textarea class="form-control" id="comments" rows="3"
+                          placeholder="Enter comment here."></textarea>
                       </div>
                     </div>
                   </form>
@@ -305,8 +282,11 @@
         </div>
       </div>
     </div>
+
+
+    <!-- results for a single business -->
     <div class="card business">
-      <h5 class="card-header bg-danger">Business Name (Irvine, CA)</h5>
+      <h5 class="card-header">Business Name (Anaheim, CA)</h5>
       <div class="card-body">
         <div class="row">
           <div class="col-6">
@@ -318,33 +298,33 @@
         </div>
         <p class="card-text">
         <div class="row">
-    
+
           <div class="col-12 col-sm-4">
-            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
           </div>
           <div class="col-12 col-sm-4">
-            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
           </div>
           <div class="col-12 col-sm-4">
-            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
           </div>
         </div>
         </p>
         <!-- write review modal -->
-        <div class="col-2">
+        <div>
           <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal">
             Write Review
           </button>
-    
+
           <!-- Modal Window -->
-          <div class="modal fade" id="writeReviewModal" tabindex="-1" role="dialog" aria-labelledby="writeReviewModalLabel"
-            aria-hidden="true">
+          <div class="modal fade" id="writeReviewModal" tabindex="-1" role="dialog"
+            aria-labelledby="writeReviewModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-    
+
                 <!-- modal header -->
                 <div id="writeReview" class="modal-header bg-danger">
                   <h5 class="modal-title" id="writeReviewModalLabel">Write Review</h5>
@@ -355,14 +335,14 @@
                 <!-- content of modal -->
                 <div class="modal-body">
                   <form>
-    
+
                     <div class="form-group row">
                       <label for="businessName" class="col-sm-4 col-form-label">Business Name:</label>
                       <div class="col-sm-6">
                         <input type="text" class="form-control" id="businessName" placeholder="Business Name">
                       </div>
                     </div>
-    
+
                     <div class="form-group row">
                       <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
                       <div class="col-sm-6">
@@ -380,16 +360,16 @@
                       </div>
                     </div>
                     <div>
-    
+
                       <p>Where is this business located?</p>
-    
+
                       <div class="form-group row">
                         <label for="city" class="col-sm-4 col-form-label">City:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="city" placeholder="City Name">
                         </div>
                       </div>
-    
+
                       <div class="form-group row">
                         <label for="state" class="col-sm-4 col-form-label">State:</label>
                         <div class="col-sm-6">
@@ -449,14 +429,14 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <div>
                       <p>Rate this business on the degree to which their employees and customers comply with the <a
                           href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
                           target="_blank">prevention
                           recommendations</a> outlined by the CDC and other local authorities.</p>
                       <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
-    
+
                       <div class="form-group row">
                         <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
                         <div class="col-sm-6">
@@ -470,7 +450,7 @@
                           </select>
                         </div>
                       </div>
-    
+
                       <div class="form-group row">
                         <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
                         <div class="col-sm-6">
@@ -484,7 +464,7 @@
                           </select>
                         </div>
                       </div>
-    
+
                       <div class="form-group row">
                         <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
                         <div class="col-sm-6">
@@ -498,7 +478,7 @@
                           </select>
                         </div>
                       </div>
-    
+
                       <div class="form-group row">
                         <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
                         <div class="col-sm-6">
@@ -512,18 +492,19 @@
                           </select>
                         </div>
                       </div>
-    
+
                     </div>
-    
+
                     <div class="form-group row">
                       <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
                       <div class="col-sm-8">
-                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                        <textarea class="form-control" id="comments" rows="3"
+                          placeholder="Enter comment here."></textarea>
                       </div>
                     </div>
                   </form>
                 </div>
-    
+
                 <div class="modal-footer">
                   <!-- close button -->
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -536,43 +517,84 @@
         </div>
       </div>
     </div>
-<br><br><br>
-    <!-- no results modal -->
-    <div class="col-2">
-      <!-- Button to trigger modal --- can we remove the button and instead call it by the "noResultsModal" id when a search doesn't yield any results?? -->
-      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#noResultsModal">
-        Temporary Button -- No results modal
-      </button>
 
-      <!-- Modal Window -->
-      <div class="modal fade" id="noResultsModal" tabindex="-1" role="dialog" aria-labelledby="noResultsModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-
-            <!-- modal header -->
-            <div id="noResults" class="modal-header bg-warning">
-              <h5 class="modal-title" id="noResultsModalLabel">Error: No results</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <!-- content of modal -->
-            <div class="modal-body">
-              <p>This business has not yet been reviewed by any user.</p>
-              <p>Would you like to write a review for this business?</p>
-            </div>
-
-            <div class="modal-footer">
-              <!-- close button -->
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-              <!-- create log in button -->
-              <a class="btn btn-primary" href="./writeReview.html" role="button">Yes</a>
-            </div>
-          </div>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-header">
+          Username
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Overview: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
+          <hr>
+          <p class="card-text">Mask Wearing:<br><span class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <p class="card-text">Social Distancing:<br><span class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <p class="card-text">Sanitation:<br><span class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <hr>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+            content.
+            This content is a little bit longer.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Created on xx/xx/xxxx.</small>
         </div>
       </div>
+    <div class="card">
+      <div class="card-header">
+        Username
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Overview: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
+        <hr>
+        <p class="card-text">Mask Wearing:<br><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></p>
+        <p class="card-text">Social Distancing:<br><span class="stars"><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+              class="far fa-star"></i></span></p>
+        <p class="card-text">Sanitation:<br><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></p>
+        <hr>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+          content.
+          This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Created on xx/xx/xxxx.</small>
+      </div>
     </div>
+    <div class="card">
+      <div class="card-header">
+        Username
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Overview: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
+        <hr>
+        <p class="card-text">Mask Wearing:<br><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></p>
+        <p class="card-text">Social Distancing:<br><span class="stars"><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+              class="far fa-star"></i></span></p>
+        <p class="card-text">Sanitation:<br><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></p>
+        <hr>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+          content.
+          This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Created on xx/xx/xxxx.</small>
+      </div>
+    </div>
+    </div>
+
 
 
   </main>
