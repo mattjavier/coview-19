@@ -1,3 +1,12 @@
-.main {
-    background-color: gray;
-  }
+form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.btn-custom {
+  background-color: rgb(32, 32, 32);
+}
+
+a:hover {
+  color: firebrick !important;
+}
