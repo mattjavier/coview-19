@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../assets/writeReview.css">
   <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
   <title>COVIEW-19 | Write a Review</title>
 </head>
 
@@ -167,56 +169,28 @@
         <div class="form-group row">
           <label for="maskUse" class="col-sm-2 col-form-label">Mask use:</label>
           <div class="col-sm-4">
-            <select class="form-control" id="maskUse">
-              <option selected>Choose...(these will be stars later)</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <div id="mask">Stars</div>
           </div>
         </div>
         
         <div class="form-group row">
           <label for="socialDistancing" class="col-sm-2 col-form-label">Social Distancing:</label>
           <div class="col-sm-4">
-            <select class="form-control" id="socialDistancing">
-              <option selected>Choose...(these will be stars later)</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <div id="social">Stars</div>
           </div>
         </div>
 
         <div class="form-group row">
           <label for="sanitization" class="col-sm-2 col-form-label">Sanitization:</label>
           <div class="col-sm-4">
-            <select class="form-control" id="sanitization">
-              <option selected>Choose...(these will be stars later)</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <div id="sanitation">Stars</div>
           </div>
         </div>
         
         <div class="form-group row">
           <label for="maskUse" class="col-sm-2 col-form-label">Overall:</label>
           <div class="col-sm-4">
-            <select class="form-control" id="maskUse">
-              <option selected>Choose...(these will be stars later)</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <div id="overall">Stars</div>
           </div>
         </div>
         
@@ -254,6 +228,10 @@
     crossorigin="anonymous"></script>
   <!-- our JS -->
   <script src="../assets/writeReview.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+ <script src="../assets/writeReview.js" >  </script>
 </body>
 
 </html>
