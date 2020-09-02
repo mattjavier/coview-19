@@ -79,7 +79,6 @@ $(document).ready(function() {
     axios.get(`/api/businesses/${name}/${type}/${city}/${state}`)
       .then(({ data }) => {
         if (data.length > 0) {
-          // 
           let businessId = data[0].id
           let userId = 2
           axios.post('/api/ratings', { 
