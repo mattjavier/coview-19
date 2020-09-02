@@ -71,6 +71,7 @@ $(document).ready(function() {
     let sanitationRating = rateYojQuery('#sanitation').rateYo().rateYo('rating')
     let overallRating = rateYojQuery('#overall').rateYo().rateYo('rating')
 
+    let username = document.getElementById('username').value
     let name = document.getElementById('businessName').value
     let type = document.getElementById('businessType').options[document.getElementById('businessType').selectedIndex].value
     let city = document.getElementById('city').value
@@ -84,6 +85,7 @@ $(document).ready(function() {
           axios.post('/api/ratings', { 
             name: name, 
             type: type, 
+            username: username,
             overallRating: overallRating, 
             maskRating: maskRating, 
             sanitationRating: sanitationRating, 
