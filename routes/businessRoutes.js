@@ -49,7 +49,7 @@ router.get('/businesses/:name/:type/:city/:state', (req, res) => {
 })
 
 // GET all business types
-router.get('/businesses/types', (req, res) => {
+router.get('/business-types', (req, res) => {
   Business.findAll({
     attributes: ['type'],
     group: ['type']
@@ -59,7 +59,7 @@ router.get('/businesses/types', (req, res) => {
 })
 
 // GET all business locations, all cities should show up once
-router.get('/businesses/locations', (req, res) => {
+router.get('/business-locations', (req, res) => {
   Business.findAll({
     attributes: ['city', 'state'],
     group: ['city', 'state']
