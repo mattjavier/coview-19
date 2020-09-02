@@ -25,7 +25,7 @@ document.getElementById('signIn').addEventListener('click', event => {
     password: document.getElementById('password').value
   })
     .then(user => {
-      if (!user) {
+      if (user !== null) {
         window.location.replace('/login')
       }
       window.location.replace('/home')
