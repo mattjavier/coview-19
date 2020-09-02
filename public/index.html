@@ -48,7 +48,7 @@
         <input type="password" class="form-control col-8 col-sm-4 col-md-3" id="password" placeholder="Password">
       </div>
 
-      <div class="col-8 col-sm-4 col-md-3 d-flex justify-content-between">
+      <div id="btns" class="col-8 col-sm-4 col-md-3 d-flex justify-content-between">
         <!-- submit button -->
         <!-- <div class="col-2"> -->
         <button id="signIn" type="submit" class="btn btn-danger">Sign In</button>
@@ -65,7 +65,7 @@
         <div class="modal fade" id="createLogInModal" tabindex="-1" role="dialog"
           aria-labelledby="createLogInModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content text-secondary">
 
               <!-- modal header -->
               <div class="modal-header">
@@ -75,7 +75,7 @@
                 </button>
               </div>
               <!-- content of modal -->
-              <div class="modal-body">
+              <div id="modalBody" class="modal-body">
                 <form>
                   <!-- create username field -->
                   <div class="form-group">
@@ -92,13 +92,14 @@
                     <small id="passwordHelp" class="form-text text-muted">Enter an alphanumeric password with # - #
                       characters.</small>
                   </div>
+                </form>
               </div>
 
-              <div class="modal-footer">
+              <div id="modalFooter" class="modal-footer">
                 <!-- close button -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <!-- create log in button -->
-                <button type="button" class="btn btn-primary">Create</button>
+                <button id="createUser" type="button" class="btn btn-primary">Create</button>
               </div>
             </div>
           </div>
@@ -108,7 +109,7 @@
     </form>
     <br><br>
     </main>
-    <footer class="navbar fixed-bottom text-light bg-dark justify-content-center">
+    <footer id="footer" class="navbar fixed-bottom text-light bg-dark justify-content-center">
       COVIEW-19 | &copy; 2020 | U.C. Irvine Coding Boot Camp
     </footer>
   <!-- Javascript -->
@@ -122,6 +123,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- our JS -->
   <script src="./assets/app.js"></script>
 </body>

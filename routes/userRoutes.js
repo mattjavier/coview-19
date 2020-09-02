@@ -9,7 +9,7 @@ router.get('/users', (req, res) => {
 
 router.post('/users', (req, res) => {
   User.create(req.body)
-    .then(user => res.json(user))
+    .then(() => res.sendStatus(200))
     .catch(err => console.log(err))
 })
 

@@ -10,3 +10,7 @@ form {
 a:hover {
   color: firebrick !important;
 }
+
+#starMessage {
+  padding-bottom: 15px;
+}
