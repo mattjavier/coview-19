@@ -1,10 +1,11 @@
 const router = require('express').Router()
 const { join } = require('path')
 
+router.get('/', (req, res) => {
+  res.sendFile(join(__dirname, '../public/index.html'))
+})
+
 router.get('/login', (req, res) => {
-  if (req.user) {
-    res.redirect('/home')
-  }
   res.sendFile(join(__dirname, '../public/index.html'))
 })
 

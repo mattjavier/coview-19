@@ -94,10 +94,11 @@ $(document).ready(function() {
           })
             .then(business => {
               console.log(business)
+              // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
         } else {
-          // crerte business, then create review
+          // create business, then create review
         }
       })
       .catch(err => console.log(err))

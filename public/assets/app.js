@@ -19,17 +19,27 @@ document.getElementById('createUser').addEventListener('click', event => {
     .catch(err => console.log(err))
 })
 
-document.getElementById('signIn').addEventListener('click', event => {
+const login = (username, password) => {
   axios.post('/api/users/login', {
-    username: document.getElementById('username').value,
-    password: document.getElementById('password').value
+    username: username,
+    password: password
   })
     .then(user => {
-      console.log(user)
       if (user !== null) {
-        window.location.replace('/login')
+        window.location.replace('/home')
+      } else {
+        window.location.replace('/')
       }
-      window.location.replace('/home')
     })
     .catch(err => console.log(err))
+}
+
+document.getElementById('signIn').addEventListener('click', event => {
+  if (!document.getElementById('username').value || !document.getElementById('password')) {
+    return
+  }
+
+  login(document.getElementById('username').value, document.getElementById('password').value)
+  document.getElementById('username').value = ''
+  document.getElementById('password').value = ''
 })
