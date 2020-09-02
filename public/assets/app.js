@@ -20,11 +20,14 @@ document.getElementById('createUser').addEventListener('click', event => {
 })
 
 document.getElementById('signIn').addEventListener('click', event => {
-  axios.post('/api/users/', {
+  axios.post('/api/users/login', {
     username: document.getElementById('username').value,
     password: document.getElementById('password').value
   })
-    .then(() => {
+    .then(user => {
+      if (!user) {
+        window.location.replace('/login')
+      }
       window.location.replace('/home')
     })
     .catch(err => console.log(err))
