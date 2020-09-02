@@ -28,6 +28,10 @@ body {
   text-shadow: none;
 }
 
+#footer {
+  padding: 20px;
+}
+
 a {
   color: #dc3545;
 }
