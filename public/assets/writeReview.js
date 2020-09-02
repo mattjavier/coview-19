@@ -78,23 +78,28 @@ $(document).ready(function() {
     let comment = document.getElementById('comments').value
     axios.get(`/api/businesses/${name}/${type}/${city}/${state}`)
       .then(({ data }) => {
-        let businessId = data[0].id
-        let userId = 2
-        axios.post('/api/ratings', { 
-          name: name, 
-          type: type, 
-          overallRating: overallRating, 
-          maskRating: maskRating, 
-          sanitationRating: sanitationRating, 
-          socialDistanceRating: socialDistanceRating, 
-          comment: comment, 
-          userId: userId, 
-          businessId: businessId 
-        })
-          .then(business => {
-            console.log(business)
+        if (data.length > 0) {
+          // 
+          let businessId = data[0].id
+          let userId = 2
+          axios.post('/api/ratings', { 
+            name: name, 
+            type: type, 
+            overallRating: overallRating, 
+            maskRating: maskRating, 
+            sanitationRating: sanitationRating, 
+            socialDistanceRating: socialDistanceRating, 
+            comment: comment, 
+            userId: userId, 
+            businessId: businessId 
           })
-          .catch(err => console.log(err))
+            .then(business => {
+              console.log(business)
+            })
+            .catch(err => console.log(err))
+        } else {
+          // crerte business, then create review
+        }
       })
       .catch(err => console.log(err))
   })
