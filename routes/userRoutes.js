@@ -16,7 +16,7 @@ router.post('/users', (req, res) => {
 // POST for login
 router.post('/users/login', (req, res) => {
   User.findOne({ where: req.body, include: [Rating] })
-    .then(user => res.json(user))
+    .then(() => res.json(req.user))
     .catch(err => console.log(err))
 })
 

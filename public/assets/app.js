@@ -1,3 +1,5 @@
+
+
 document.getElementById('createUser').addEventListener('click', event => {
 
   axios.post('/api/users', {
@@ -27,8 +29,10 @@ const login = (username, password) => {
     .then(user => {
       if (user !== null) {
         window.location.replace('/home')
+        //document.getElementById('loginMessage').className = 'd-none'
       } else {
         window.location.replace('/')
+        //document.getElementById('loginMessage').className = 'd-block'
       }
     })
     .catch(err => console.log(err))
