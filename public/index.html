@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="./assets/reset.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+  <!-- our css -->
+  <link rel="stylesheet" href="./assets/global.css">
+  <link rel="stylesheet" href="./assets/style.css">
+  <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
+  <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+  <title>COVIEW-19 | Sign In</title>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark text-light bg-dark">
+    <a class="navbar-brand" href="#"><img src="./assets/images/favicon.png" alt="logo: red virus with a c on it"
+        height="25px"> COVIEW-19</a>
+  </nav>
+
+
+
+
+  <main class="container text-light">
+    <h1>Sign In</h1>
+    <!-- sign in form -->
+    <form>
+      <!-- username field -->
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" class="form-control col-8 col-sm-4 col-md-3" id="username" placeholder="Enter Username">
+      </div>
+
+      <!-- password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control col-8 col-sm-4 col-md-3" id="password" placeholder="Password">
+      </div>
+
+      <div id="btns" class="col-8 col-sm-4 col-md-3 d-flex justify-content-between">
+        <!-- submit button -->
+        <!-- <div class="col-2"> -->
+        <button id="signIn" type="submit" class="btn btn-danger">Sign In</button>
+        <!-- </div> -->
+
+        <!-- log in modal -->
+        <!-- <div class="col-2"> -->
+        <!-- Button to trigger modal -->
+        <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#createLogInModal">
+          Create Log In
+        </button>
+
+        <!-- Modal Window -->
+        <div class="modal fade" id="createLogInModal" tabindex="-1" role="dialog"
+          aria-labelledby="createLogInModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content text-secondary">
+
+              <!-- modal header -->
+              <div class="modal-header">
+                <h5 class="modal-title" id="createLogInModalLabel">Create Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- content of modal -->
+              <div id="modalBody" class="modal-body">
+                <form>
+                  <!-- create username field -->
+                  <div class="form-group">
+                    <label for="createUsername">User Name</label>
+                    <input type="text" class="form-control" id="createUsername" placeholder="Enter Username">
+                    <small id="userHelp" class="form-text text-muted">Enter an alphanumeric username with # - #
+                      characters.</small>
+                  </div>
+
+                  <!-- password field -->
+                  <div class="form-group">
+                    <label for="createPassword">Password</label>
+                    <input type="password" class="form-control" id="createPassword" placeholder="Password">
+                    <small id="passwordHelp" class="form-text text-muted">Enter an alphanumeric password with # - #
+                      characters.</small>
+                  </div>
+                </form>
+              </div>
+
+              <div id="modalFooter" class="modal-footer">
+                <!-- close button -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- create log in button -->
+                <button id="createUser" type="button" class="btn btn-primary">Create</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
+    <br><br>
+    </main>
+    <footer id="footer" class="navbar fixed-bottom text-light bg-dark justify-content-center">
+      COVIEW-19 | &copy; 2020 | U.C. Irvine Coding Boot Camp
+    </footer>
+  <!-- Javascript -->
+  <!-- bootstrap js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- our JS -->
+  <script src="./assets/app.js"></script>
+</body>
+
+</html>

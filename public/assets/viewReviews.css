@@ -1,0 +1,36 @@
+form {
+  margin: 0px;
+  width: 100%;
+}
+
+.business {
+  margin-bottom: 32px;
+}
+
+.stars {
+  white-space: nowrap;
+}
+
+.card-header {
+  /* background-color: rgb(184, 184, 184); */
+  background-color: rgb(212, 212, 212);
+  margin: 0px;
+}
+
+.card {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.noReview {
+  border: #343a40;
+  margin-bottom: 25px;
+}
+
+.businessHead {
+  padding: 0px;
+  margin: 0px;
+}

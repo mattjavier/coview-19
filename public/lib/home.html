@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="../assets/reset.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+  <!-- our css -->
+  <link rel="stylesheet" href="../assets/global.css">
+  <link rel="stylesheet" href="../assets/home.css">
+  <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+  <title>COVIEW-19 | Home</title>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark text-light bg-dark">
+    <a class="navbar-brand" href="/home"><img src="../assets/images/favicon.png"
+        alt="logo: red virus with a c on it" height="25px"> COVIEW-19</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-danger" href="/home">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="./viewReviews.html">View Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./writeReview.html">Write a Review</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign In</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="jumbotron jumbotron-fluid text-light">
+    <h1 class="display-4">COVIEW-19</h1>
+    <p class="lead">Your place for tracking COVID-19 compliance at your local businesses.</p>
+    <h2>Get Started</h2>
+    <p>What would you like to do?</p>
+    <div class="row justify-content-center">
+      <!-- view reviews -->
+      <div class="col-md-2 col-6">
+        <a class="btn btn-custom" href="/view" role="button">View Reviews</a>
+      </div>
+
+      <!-- write a review -->
+      <div class="col-md-2 col-6">
+        <a class="btn btn-custom" href="/write" role="button">Write Review</a>
+      </div>
+    </div>
+    <p class="lead">
+
+    </p>
+  </div>
+  <main class="container">
+
+    <!-- recommendations -->
+    <section>
+      <h2 class="text-center text-light">Current COVID-19 Recommendations</h2>
+
+      <div class="card-group">
+
+        <!-- Mask use card -->
+        <div class="card bg-light">
+          <div class="card-img-top text-center"><i class="fas fa-head-side-mask fa-7x"></i></div>
+          <div class="card-body">
+            <h5 class="card-title">Mask Use</h5>
+            <p class="card-text">Wear masks with two or more layers to stop the spread of COVID-19. Masks should cover a
+              person's nose, mouth, and chin and fit snugly to the sides of your face. Masks should be worn by people
+              two years and older. Masks should NOT be worn by children younger than two, people who have trouble
+              breathing, or people who cannot remove the mask without assistance.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">More about <a
+                href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/diy-cloth-face-coverings.html">mask
+                use</a> from the CDC.</small>
+          </div>
+        </div>
+
+        <!-- social distancing card -->
+        <div class="card bg-light">
+          <div class="card-img-top text-center"><i class="fas fa-people-arrows fa-7x"></i></div>
+          <div class="card-body">
+            <h5 class="card-title">Social Distancing</h5>
+            <p class="card-text">To practice social or physical distancing, stay at least 6 feet (about 2 arms’ length)
+              from other people who are not from your household in both indoor and outdoor spaces.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">More about <a
+                href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/social-distancing.html">social
+                distancing</a> from the CDC.</small>
+          </div>
+        </div>
+
+        <!-- sanitization card -->
+        <div class="card bg-light">
+          <div class="card-img-top text-center"><i class="fas fa-hand-sparkles fa-7x"></i></div>
+          <!-- other possible icons for this card -->
+          <!-- <div class="card-img-top text-center"><i class="fas fa-hand-holding-water fa-7x"></i></div> -->
+          <!-- <div class="card-img-top text-center"><i class="fas fa-hands-wash fa-7x"></i></i></div> -->
+          <div class="card-body">
+            <h5 class="card-title">Sanitization</h5>
+            <p class="card-text">Wash your hands often with soap and water for 20 seconds. Clean surfaces using soap and
+              water, then use disinfectant. Routine cleaning of frequently touched surfaces. High touch surfaces
+              include: tables, doorknobs, light switches, countertops, handles, desks, phones, keyboards, toilets,
+              faucets, sinks, etc.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">More about <a
+                href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/disinfecting-your-home.html">sanitation</a>
+              from the CDC.</small>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <br><br>
+    </main>
+    <footer id="footer" class="navbar fixed-bottom text-light bg-dark justify-content-center">
+      COVIEW-19 | &copy; 2020 | U.C. Irvine Coding Boot Camp
+    </footer>
+  <!-- Javascript -->
+  <!-- bootstrap js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- our JS -->
+  <script src="../assets/home.js"></script>
+</body>
+
+</html>
