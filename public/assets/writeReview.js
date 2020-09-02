@@ -97,9 +97,16 @@ $(document).ready(function() {
               // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
-        } else {
-          // create business, then create review
-        }
+        // } else {
+        //   // create business, then create review
+        //   axios.post('/api/businesses', {
+        //     name: name,
+        //     type: type,
+        //     city: city,
+        //     state: state
+        //   })
+        //     .then()
+        // }
       })
       .catch(err => console.log(err))
   })
