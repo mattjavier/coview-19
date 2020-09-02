@@ -97,6 +97,7 @@ $(document).ready(function() {
               // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
+          }
         // } else {
         //   // create business, then create review
         //   axios.post('/api/businesses', {
