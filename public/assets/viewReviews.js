@@ -1,3 +1,16 @@
+// stars in reviewed card coming up after search
+
+// $(function () {
+ 
+  // $("#overall").rateYo({
+  //   rating: 1.5,
+  //   halfStar: true,
+  //   readOnly: true
+  // });
+// });
+
+
+
 // business name auto complete
 axios.get('/api/businesses')
 .then(({ data }) => {
