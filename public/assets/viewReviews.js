@@ -21,10 +21,32 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
   let state = document.getElementById('stateSrc').options[document.getElementById('stateSrc').selectedIndex].value
 
   console.log(name, type, city, state)
+  let search = ''
 
+  if (name !== '') {
+    search = '/' + name
+    console.log(search)
+  }
 
-  axios.get('api/businesses/' + type)
+  if (type !== '') {
+    search = search + '/' + type
+    console.log(search)
+  }
+
+  if (city !== '') {
+    search = search + '/' + city
+    console.log(search)
+  }
+
+  if (state !== '') {
+    search = search + '/' + state
+    console.log(search)
+  }
+
+  // generic search handler
+  axios.get('api/businesses' + search)
     .then(({ data }) => {
+      console.log(data)
       data.forEach(business => {
         let businessElem = document.createElement('div')
         businessElem.innerHTML = `
@@ -44,7 +66,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
             <h5 class="card-title">${business.type}</h5>
           </div>
           <div class="col-6 text-right">
-            <p class="card-title">Reviews: 6</p>
+            <p class="card-title">Reviews: ${business.ratings.length}</p>
           </div>
         </div>
         <p class="card-text">
@@ -66,13 +88,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         </p>
       </div>
       </div>
-        
-        
-        
-        
-        
-        
-        
         `
         document.getElementById('searchResults').prepend(businessElem)
       })
