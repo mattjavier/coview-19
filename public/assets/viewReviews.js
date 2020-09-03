@@ -231,56 +231,28 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                       <div class="form-group row">
                         <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}maskUse">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                        <span id="maskModal">Stars</span>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}socialDistancing">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                        <span id="socialModal">Stars</span>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}sanitization">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                        <span id="sanitationModal">Stars</span>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}maskUse">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                        <span id="overallModal">Stars</span>
                         </div>
                       </div>
 
@@ -335,6 +307,34 @@ setTimeout(() => {
     rating: 1.5,
     halfStar: true,
     readOnly: true,
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#overallModal").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#maskModal").rateYo({
+    rating: 1.5,
+    halfStar: true,
+   
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#socialModal").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#sanitationModal").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    
     starWidth: "20px"
   })
 
