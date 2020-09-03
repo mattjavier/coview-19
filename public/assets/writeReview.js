@@ -71,6 +71,7 @@ $(document).ready(function() {
     let sanitationRating = rateYojQuery('#sanitation').rateYo().rateYo('rating')
     let overallRating = rateYojQuery('#overall').rateYo().rateYo('rating')
 
+    let username = document.getElementById('username').value
     let name = document.getElementById('businessName').value
     let type = document.getElementById('businessType').options[document.getElementById('businessType').selectedIndex].value
     let city = document.getElementById('city').value
@@ -80,25 +81,48 @@ $(document).ready(function() {
       .then(({ data }) => {
         if (data.length > 0) {
           let businessId = data[0].id
-          let userId = 2
           axios.post('/api/ratings', { 
             name: name, 
             type: type, 
+            username: username,
             overallRating: overallRating, 
             maskRating: maskRating, 
             sanitationRating: sanitationRating, 
             socialDistanceRating: socialDistanceRating, 
             comment: comment, 
-            userId: userId, 
             businessId: businessId 
           })
-            .then(business => {
-              console.log(business)
+            .then(({ data }) => {
+              console.log(data)
               // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
         } else {
           // create business, then create review
+          axios.post('/api/businesses', {
+            name: name,
+            type: type,
+            city: city,
+            state: state
+          })
+            .then(({ data }) => {
+              axios.post('/api/ratings', {
+                name: name,
+                type: type,
+                username: username,
+                overallRating: overallRating,
+                maskRating: maskRating,
+                sanitationRating: sanitationRating,
+                socialDistanceRating: socialDistanceRating,
+                comment: comment,
+                businessId: data.id
+              })
+                .then(({ data }) => {
+                  console.log(data)
+                })
+                .catch(err => console.log(err))
+            })
+            .catch(err => console.log(err))
         }
       })
       .catch(err => console.log(err))

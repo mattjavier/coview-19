@@ -1,14 +1,6 @@
 const router = require('express').Router()
 const { join } = require('path')
 
-router.get('/', (req, res) => {
-  res.sendFile(join(__dirname, '../public/index.html'))
-})
-
-router.get('/login', (req, res) => {
-  res.sendFile(join(__dirname, '../public/index.html'))
-})
-
 router.get('/about', (req, res) => {
   res.sendFile(join(__dirname, '../public/lib/about.html'))
 })
@@ -22,7 +14,7 @@ router.get('/write', (req, res) => {
 })
 
 router.get('/*', (req, res) => {
-  res.sendFile(join(__dirname, '../public/lib/home.html'))
+  res.sendFile(join(__dirname, '../public/index.html'))
 })
 
 module.exports = router

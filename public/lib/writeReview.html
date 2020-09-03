@@ -12,9 +12,9 @@
   <!-- font awesome cdn -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
-    <!-- our css -->
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
+  <!-- our css -->
   <link rel="stylesheet" href="../assets/global.css">
   <link rel="stylesheet" href="../assets/writeReview.css">
   <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
@@ -30,7 +30,8 @@
 <body>
   <!-- nav bar -->
   <nav class="navbar sticky-top navbar-expand-md navbar-dark text-light bg-dark">
-    <a class="navbar-brand" href="/home"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px"> COVIEW-19</a>
+    <a class="navbar-brand" href="/home"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it"
+        height="25px"> COVIEW-19</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,37 +51,43 @@
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Sign In</a>
-        </li>
       </ul>
     </div>
   </nav>
 
 
 
-<div class="jumbotron jumbotron-fluid text-light">
-  <h1 class="display-4">Write a Review</h1>
-  <p class="lead">Describe what you've observed for COVID-19 compliance at a business you have frequented recently.</p>
-</div>
+  <div class="jumbotron jumbotron-fluid text-light">
+    <h1 class="display-4">Write a Review</h1>
+    <p class="lead">Describe what you've observed for COVID-19 compliance at a business you have frequented recently.
+    </p>
+  </div>
 
 
 
   <main class="container">
     <!-- <h1 class="text-light">Write a Review</h1> -->
 
-  <form class="col-12 col-md-9 text-light">
-    
-    <div class="form-group row">
-      <label for="businessName" class="col-sm-2 col-form-label">Business Name:</label>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+    <form class="col-12 col-md-9 text-light">
+
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="username" placeholder="e.g. John Doe or user123">
+          <small id="userMessage" class="form-text text-muted">Choose a username that will display with your reivew.</small>
+        </div>
       </div>
-    </div>
-    
-    <div class="form-group row">
-      <label for="businessType" class="col-sm-2 col-form-label">Business Type:</label>
-      <div class="col-sm-4">
+
+      <div class="form-group row">
+        <label for="businessName" class="col-sm-2 col-form-label">Business Name:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="businessType" class="col-sm-2 col-form-label">Business Type:</label>
+        <div class="col-sm-4">
           <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
           <select class="form-control" id="businessType">
             <option selected>Choose...</option>
@@ -88,9 +95,9 @@
         </div>
       </div>
       <div>
-        
+
         <p>Where is this business located?</p>
-        
+
         <div class="form-group row">
           <label for="city" class="col-sm-2 col-form-label">City:</label>
           <div class="col-sm-4">
@@ -107,18 +114,20 @@
           </div>
         </div>
       </div>
-      
+
       <div>
-        <p>Rate this business on the degree to which their employees and customers comply with the <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html" class="text-danger" target="_blank">prevention recommendations</a> outlined by the CDC and other local authorities.</p>
+        <p>Rate this business on the degree to which their employees and customers comply with the <a
+            href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html" class="text-danger"
+            target="_blank">prevention recommendations</a> outlined by the CDC and other local authorities.</p>
         <small id="starMessage" class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
-        
+
         <div class="form-group row">
           <label for="maskUse" class="col-sm-2 col-form-label">Mask use:</label>
           <div class="col-sm-4">
             <div id="mask">Stars</div>
           </div>
         </div>
-        
+
         <div class="form-group row">
           <label for="socialDistancing" class="col-sm-2 col-form-label">Social Distancing:</label>
           <div class="col-sm-4">
@@ -132,16 +141,16 @@
             <div id="sanitation">Stars</div>
           </div>
         </div>
-        
+
         <div class="form-group row">
           <label for="maskUse" class="col-sm-2 col-form-label">Overall:</label>
           <div class="col-sm-4">
             <div id="overall">Stars</div>
           </div>
         </div>
-        
+
       </div>
-      
+
       <div class="form-group row">
         <label for="comments" class="col-sm-2 col-form-label">Comments:</label>
         <div class="col-sm-6">
@@ -173,7 +182,7 @@
     crossorigin="anonymous"></script>
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <!-- rateYo -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
   <script>
@@ -188,7 +197,7 @@
   <!-- axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- our JS -->
- <script src="../assets/writeReview.js" >  </script>
+  <script src="../assets/writeReview.js">  </script>
 </body>
 
 </html>

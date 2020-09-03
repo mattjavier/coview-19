@@ -3,6 +3,16 @@ form {
   width: 100%;
 }
 
+#searchTxt {
+  display: none;
+}
+
+#srcBusiness {
+  white-space: nowrap;
+  width: fit-content;
+  height: fit-content;
+}
+
 .business {
   margin-bottom: 32px;
 }
@@ -12,7 +22,6 @@ form {
 }
 
 .card-header {
-  /* background-color: rgb(184, 184, 184); */
   background-color: rgb(212, 212, 212);
   margin: 0px;
 }
@@ -33,4 +42,16 @@ form {
 .businessHead {
   padding: 0px;
   margin: 0px;
+}
+
+@media only screen and (max-width: 767.98px) {
+  #searchTxt {
+    display: inline;
+  }
+  #srcBusiness {
+    padding: 6px;
+  }
+  .srcIcon {
+    display: none;
+  }
 }
