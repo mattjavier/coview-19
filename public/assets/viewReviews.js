@@ -1,20 +1,19 @@
 // business name auto complete
-$(document).ready(function () {
-  $.ajax('/api/businesses')
-    .then(businesses => {
-      businesses = businesses.map(business => business.name)
+axios.get('/api/businesses')
+  .then(({ data }) => {
+    data = data.map(business => business.name)
 
-      $('#businessName').autocomplete({
-        source: businesses
-      })
+    autojQuery('#businessName').autocomplete({
+      source: data
     })
-})
+  })
+
 
 // city autocompleter
 axios.get('/api/business-locations')
   .then(({ data }) => {
     data = data.map(location => location.city)
-    $('#citySrc').autocomplete({
+    autojQuery('#citySrc').autocomplete({
       source: data
     })
   })
@@ -380,7 +379,19 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           </div>
         </div>
         </p>
-                <!-- write review modal -->
+
+ </div>
+      </div>
+
+
+
+
+<div class="accordion" id="accordionExample${business.id}">
+  <div id="card${business.id}" class="card">
+    <div class="test bg-light card-header" id="heading${business.id}">
+      <div class="mb-0 row">
+        <div class="col-6">
+                        <!-- write review modal -->
         <div>
           <button id="writeReview${business.id}" type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
             Write Review
@@ -534,25 +545,21 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
             </div>
           </div>
         </div>
+        </div>
+        
 
-
-
-
-
-<div class="accordion" id="accordionExample${business.id}">
-  <div class="card">
-    <div class="card-header" id="heading${business.id}">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${business.id}"
+        <div class="col-6">        
+          <button class="btn bg-dark text-light text-right" type="button" data-toggle="collapse" data-target="#collapse${business.id}"
           aria-expanded="true" aria-controls="collapse${business.id}">
-          Click to view reviews.
-        </button>
-      </h2>
+          View Reviews
+          </button>
+        </div>
+      </div>
     </div>
 
     <div id="collapse${business.id}" class="collapse" aria-labelledby="heading${business.id}" data-parent="#accordionExample${business.id}">
-      <div id="${business.id}individualReviews" class="card-body">
-        No reviews yet for this business.
+      <div id="${business.id}individualReviews" class="card-body card-columns">
+        
       </div>
     </div>
   </div>
@@ -566,8 +573,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
 
 
-      </div>
-      </div>
+     
               `
           document.getElementById('searchResults').prepend(businessElem)
 
@@ -575,9 +581,16 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           axios.get(`api/ratings/${business.id}`)
             .then(({ data }) => {
               console.log(data)
-              data.forEach(review => {
-                let reviewElem = document.createElement('div')
-                reviewElem.innerHTML = `
+              if (data.length === 0) {
+                document.getElementById(`${business.id}individualReviews`).innerText = "No reviews yet for this business."
+                document.getElementById(`${business.id}individualReviews`).classList.remove('card-columns')
+              } else {
+                data.forEach(review => {
+                  document.getElementById(`${business.id}individualReviews`).classList.add('bg-dark')
+                  document.getElementById(`card${business.id}`).classList.add('border')
+                  document.getElementById(`card${business.id}`).classList.add('border-dark')
+                  let reviewElem = document.createElement('div')
+                  reviewElem.innerHTML = `
               <div class="card userReview">
         <div class="card-header">
           <i class="fas fa-user"></i> ${review.username}
@@ -603,8 +616,9 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         </div>
       </div>
               `
-                document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
-              })
+                  document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
+                })
+              }
             })
             .catch(err => console.error(err))
         })
