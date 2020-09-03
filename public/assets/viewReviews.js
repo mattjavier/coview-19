@@ -23,6 +23,61 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
   console.log(name, type, city, state)
 
 
+  axios.get('api/businesses/' + type)
+    .then(({ data }) => {
+      data.forEach(business => {
+        let businessElem = document.createElement('div')
+        businessElem.innerHTML = `
+        <div id="${business.id}" class="card business">
+      <h5 class="card-header row">
+        <div class="businessHead col-12 col-sm-6">
+          ${business.name} (${business.city}, ${business.state})
+        </div>
+        <div class="businessHead text-right col-12 col-sm-6">Overall:
+          <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+        </div>
+      </h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title">${business.type}</h5>
+          </div>
+          <div class="col-6 text-right">
+            <p class="card-title">Reviews: 6</p>
+          </div>
+        </div>
+        <p class="card-text">
+        <div class="row">
+
+          <div class="col-12 col-sm-4">
+            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+          <div class="col-12 col-sm-4">
+            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+          <div class="col-12 col-sm-4">
+            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          </div>
+        </div>
+        </p>
+      </div>
+      </div>
+        
+        
+        
+        
+        
+        
+        
+        `
+        document.getElementById('searchResults').prepend(businessElem)
+      })
+    })
+    .catch(err => console.error(err))
 
 })
 
