@@ -8,37 +8,17 @@ router.get('/businesses', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// GET all businesses by location ('/api/businesses/:city/:state')
-router.get('/businesses/:city/:state', (req, res) => {
-  Business.findAll({ 
-    where: { city: req.params.city, state: req.params.state },
-    include: [Rating]  
-  })
-    .then(businesses => res.json(businesses))
-    .catch(err => console.log(err))
-})
-
-// GET all businesses by type ('/api/businesses/:type')
-router.get('/businesses/:type', (req, res) => {
+// GET all businesses by location, type, or name ('/api/businesses/:name/:type/:city/:state')
+router.post('/businesses/get', (req, res) => {
   Business.findAll({
-    where: { type: req.params.type },
+    where: req.body,
     include: [Rating]
   })
     .then(businesses => res.json(businesses))
     .catch(err => console.log(err))
 })
 
-// GET all businesses by type and location ('/api/:type/:city/:state')
-router.get('/businesses/:type/:city/:state', (req, res) => {
-  Business.findAll({
-    where: { type: req.params.type, city: req.params.city, state: req.params.state },
-    include: [Rating]
-  })
-    .then(businesses => res.json(businesses))
-    .catch(err => console.log(err))
-})
-
-// GET all businesses by location, type, name ('/api/businesses/:name/:type/:city/:state')
+// GET businesses that match exactly this
 router.get('/businesses/:name/:type/:city/:state', (req, res) => {
   Business.findAll({
     where: { name: req.params.name, type: req.params.type, city: req.params.city, state: req.params.state },
@@ -76,13 +56,6 @@ router.post('/businesses', (req, res) => {
         .then(currentBusiness => res.json(currentBusiness))
         .catch(err => console.log(err))
     })
-    .catch(err => console.log(err))
-})
-
-// PUT a review a new business
-router.put('/businesses/:id', (req, res) => {
-  Business.update(req.body, { where: { id: req.params.id } })
-    .then(() => res.sendStatus(200))
     .catch(err => console.log(err))
 })
 
