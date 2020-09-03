@@ -9,6 +9,29 @@ $(document).ready(function () {
     })
 })
 
+// populate business types dropdown
+axios.get('api/business-types')
+  .then(({ data }) => {
+    data.forEach(type => {
+      let optionElem = document.createElement('option')
+      optionElem.value = type.type
+      optionElem.textContent = type.type
+      document.getElementById('businessType').append(optionElem)
+    })
+  })
+
+// populate business types dropdown
+axios.get('api/business-types')
+  .then(({ data }) => {
+    data.forEach(type => {
+      let optionElem = document.createElement('option')
+      optionElem.value = type.type
+      optionElem.textContent = type.type
+      document.getElementById('typeSrc').append(optionElem)
+    })
+  })
+
+
 document.getElementById('srcBusiness').addEventListener('click', event => {
   event.preventDefault()
   document.getElementById('noResults').classList.add('d-none')
