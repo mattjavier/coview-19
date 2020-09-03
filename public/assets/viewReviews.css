@@ -17,6 +17,10 @@ form {
   display: inline-block;
 }
 
+.business {
+  margin-bottom: 32px;
+}
+
 .accordion {
   margin-bottom: 32px;
 }

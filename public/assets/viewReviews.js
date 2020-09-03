@@ -1,15 +1,3 @@
-// stars in reviewed card coming up after search
-
-// $(function () {
- 
-  // $("#overall").rateYo({
-  //   rating: 1.5,
-  //   halfStar: true,
-  //   readOnly: true
-  // });
-// });
-
-
 
 // business name auto complete
 axios.get('/api/businesses')
@@ -121,58 +109,53 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         document.getElementById('noResults').classList.remove('d-none')
 
       } else {
-
         data.forEach(business => {
           let businessElem = document.createElement('div')
           businessElem.innerHTML = `
-        <div id="${business.id}" class="card business">
-      <h5 class="card-header row">
-        <div class="businessHead col-12 col-sm-6">
-          ${business.name} (${business.city}, ${business.state})
-        </div>
-        <div class="businessHead text-right col-12 col-sm-6">Overall:
-          <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-        </div>
-      </h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <h5 class="card-title">${business.type}</h5>
-          </div>
-          <div class="col-6 text-right">
-            <p class="card-title">Reviews: ${business.ratings.length}</p>
-          </div>
-        </div>
-        <p class="card-text">
-        <div class="row">
+            <div id="${business.id}" class="card business">
+              <h5 class="card-header row">
+                <div class="businessHead col-12 col-sm-6">
+                  ${business.name} (${business.city}, ${business.state})
+                </div>
+                <div class="businessHead text-right col-12 col-sm-6">
+                  Overall: <span id="overall${business.id}">Stars</span>
+                </div>
+              </h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6">
+                    <h5 class="card-title">${business.type}</h5>
+                  </div>
+                  <div class="col-6 text-right">
+                    <p class="card-title">Reviews: ${business.ratings.length}</p>
+                  </div>
+                </div>
+                <p class="card-text">
+                  <div class="row">
 
-          <div class="col-12 col-sm-4">
-            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-        </div>
-        </p>
+                    <div class="col-12 col-sm-4">
+                      Mask Wearing: <span id="maskCard${business.id}">Stars</span>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      Social Distancing: <span id="socialCard${business.id}">Stars</span>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      Sanitation: <span id="sanitationCard${business.id}">Stars</span>
+                    </div>
+                  </div>
+                </p>
+              </div>
 
- </div>
-      </div>
+              <!-- accordian begin -->
 
+              <!-- accordian end -->
+            </div>
 
-
-
-<div class="accordion" id="accordionExample${business.id}">
-  <div id="card${business.id}" class="card border-0">
-    <div class="test card-header" id="heading${business.id}">
-      <div class="mb-0 row">
-        <div class="col-6">
+            <div class="accordion" id="accordionExample${business.id}">
+              <div id="card${business.id}" class="card border-0">
+                <div class="test card-header" id="heading${business.id}">
+                  <div class="mb-0 row">
+                    <div class="col-6">
                         <!-- write review modal -->
         <div>
           <a id="writeReview${business.id}" type="button" href="" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
@@ -380,7 +363,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
 
      
-              `
+              `;
 
               setTimeout(() => {
                 axios.get(`/api/ratings/avg-overall/${business.id}`)
