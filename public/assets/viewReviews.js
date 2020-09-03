@@ -387,8 +387,8 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
 
 <div class="accordion" id="accordionExample${business.id}">
-  <div id="card${business.id}" class="card">
-    <div class="test bg-light card-header" id="heading${business.id}">
+  <div id="card${business.id}" class="card border-0">
+    <div class="test card-header" id="heading${business.id}">
       <div class="mb-0 row">
         <div class="col-6">
                         <!-- write review modal -->
@@ -548,8 +548,8 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         </div>
         
 
-        <div class="col-6">        
-          <button class="btn bg-dark text-light text-right" type="button" data-toggle="collapse" data-target="#collapse${business.id}"
+        <div class="col-6 d-flex justify-content-end">        
+          <button class="btn bg-dark text-light" type="button" data-toggle="collapse" data-target="#collapse${business.id}"
           aria-expanded="true" aria-controls="collapse${business.id}">
           View Reviews
           </button>
@@ -587,8 +587,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
               } else {
                 data.forEach(review => {
                   document.getElementById(`${business.id}individualReviews`).classList.add('bg-dark')
-                  document.getElementById(`card${business.id}`).classList.add('border')
-                  document.getElementById(`card${business.id}`).classList.add('border-dark')
                   let reviewElem = document.createElement('div')
                   reviewElem.innerHTML = `
               <div class="card userReview">
