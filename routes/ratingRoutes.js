@@ -22,7 +22,7 @@ router.post('/ratings', (req, res) => {
 
 // GET ratings for one business 
 router.get('/ratings/:businessId', (req, res) => {
-  Rating.findOne({ where: { businessId: req.params.businessId }, include: [Business] })
+  Rating.findAll({ where: { businessId: req.params.businessId }, include: [Business] })
     .then(ratings => res.json(ratings))
     .catch(err => console.log(err))
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // stars in reviewed card coming up after search
 
 // $(function () {
@@ -20,9 +21,30 @@ $(document).ready(function () {
       $('#businessName').autocomplete({
         source: businesses
       })
-    })
-})
+=======
+// business name auto complete
+axios.get('/api/businesses')
+  .then(({ data }) => {
+    data = data.map(business => business.name)
 
+    autojQuery('#businessName').autocomplete({
+      source: data
+>>>>>>> fcc8b23af0454e855d7aaaaf0adb437fb653c7c4
+    })
+  })
+
+
+// city autocompleter
+axios.get('/api/business-locations')
+  .then(({ data }) => {
+    data = data.map(location => location.city)
+    autojQuery('#citySrc').autocomplete({
+      source: data
+    })
+  })
+  .catch(err => console.log(err))
+
+<<<<<<< HEAD
 // city autocompleter
 axios.get('/api/business-locations')
   .then(({ data }) => {
@@ -33,6 +55,8 @@ axios.get('/api/business-locations')
   })
   .catch(err => console.log(err))
 
+=======
+>>>>>>> fcc8b23af0454e855d7aaaaf0adb437fb653c7c4
 // populate business types dropdown
 axios.get('api/business-types')
   .then(({ data }) => {
@@ -101,6 +125,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
   let city = document.getElementById('citySrc').value
 
   let state = document.getElementById('stateSrc').options[document.getElementById('stateSrc').selectedIndex].value
+<<<<<<< HEAD
 
   let businessId = ''
 
@@ -409,6 +434,22 @@ setTimeout(() => {
             })
           })
           .catch(err => console.error(err))
+=======
+
+  let businessId = ''
+
+  let where = buildWhere(name, type, city, state)
+  console.log(where)
+
+  // generic search handler
+  axios.post(`/api/businesses/get`, where)
+    .then(({ data }) => {
+
+      console.log(data)
+      if (data.length === 0) {
+        console.log('empty')
+        document.getElementById('noResults').classList.remove('d-none')
+>>>>>>> fcc8b23af0454e855d7aaaaf0adb437fb653c7c4
 
       } else {
 
@@ -451,11 +492,31 @@ setTimeout(() => {
           </div>
         </div>
         </p>
+<<<<<<< HEAD
                 <!-- write review modal -->
         <div>
           <button id="writeReview${business.id}" type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
             Write Review
           </button>
+=======
+
+ </div>
+      </div>
+
+
+
+
+<div class="accordion" id="accordionExample${business.id}">
+  <div id="card${business.id}" class="card border-0">
+    <div class="test card-header" id="heading${business.id}">
+      <div class="mb-0 row">
+        <div class="col-6">
+                        <!-- write review modal -->
+        <div>
+          <a id="writeReview${business.id}" type="button" href="" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
+            Write Review
+          </a>
+>>>>>>> fcc8b23af0454e855d7aaaaf0adb437fb653c7c4
 
           <!-- Modal Window -->
           <div class="modal fade" id="writeReviewModal${business.id}" tabindex="-1" role="dialog"
@@ -466,9 +527,15 @@ setTimeout(() => {
                 <!-- modal header -->
                 <div class="modal-header bg-danger">
                   <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
+<<<<<<< HEAD
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
+=======
+                  <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </a>
+>>>>>>> fcc8b23af0454e855d7aaaaf0adb437fb653c7c4
                 </div>
                 <!-- content of modal -->
                 <div class="modal-body">
@@ -605,10 +672,87 @@ setTimeout(() => {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
       </div>
       </div>
               `
           document.getElementById('searchResults').prepend(businessElem)
+=======
+        </div>
+        
+
+        <div class="col-6 d-flex justify-content-end">        
+          <a class="btn btn-custom" href="" type="button" data-toggle="collapse" data-target="#collapse${business.id}"
+          aria-expanded="true" aria-controls="collapse${business.id}">
+          View Reviews
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="collapse${business.id}" class="collapse" aria-labelledby="heading${business.id}" data-parent="#accordionExample${business.id}">
+      <div id="${business.id}individualReviews" class="card-body card-columns">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+     
+              `
+          document.getElementById('searchResults').prepend(businessElem)
+
+
+          axios.get(`api/ratings/${business.id}`)
+            .then(({ data }) => {
+              console.log(data)
+              if (data.length === 0) {
+                document.getElementById(`${business.id}individualReviews`).innerText = "No reviews yet for this business."
+                document.getElementById(`${business.id}individualReviews`).classList.remove('card-columns')
+              } else {
+                data.forEach(review => {
+                  document.getElementById(`${business.id}individualReviews`).classList.add('bg-dark')
+                  let reviewElem = document.createElement('div')
+                  reviewElem.innerHTML = `
+              <div class="card userReview">
+        <div class="card-header">
+          <i class="fas fa-user"></i> ${review.username}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Overall: ${review.overallRating} <span id="overallStars" class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
+          <hr class="border-danger">
+          <p class="card-text">Mask Wearing:<br>${review.maskRating} <span id="maskStars" class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <p class="card-text">Social Distancing:<br>${review.socialDistanceRating} <span id="socialDistanceStars" class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <p class="card-text">Sanitation:<br> ${review.sanitationRating} <span id="sanitationStars" class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <hr class="border-danger">
+          <p class="card-text">${review.comment}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Created on ${review.createdAt}.</small>
+        </div>
+      </div>
+              `
+                  document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
+                })
+              }
+            })
+            .catch(err => console.error(err))
+>>>>>>> fcc8b23af0454e855d7aaaaf0adb437fb653c7c4
         })
       }
     })

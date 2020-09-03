@@ -54,10 +54,9 @@
     </div>
   </nav>
 
-
   <div class="jumbotron jumbotron-fluid text-light">
     <h1 class="display-4">View Reviews</h1>
-    <p class="lead">Search by location, business type, and/or buisness name to find reviews of businesses.</p>
+    <p class="lead">Search by location, business type, and/or business name to find reviews of businesses.</p>
     <div class="row justify-content-center">
 
       <form class="row justify-content-center">
@@ -92,8 +91,8 @@
         </div>
         <div
           class="col-12 offset-sm-11 col-sm-1 offset-md-0 d-flex justify-content-sm-end justify-content-center justify-content-md-start">
-          <div id="srcBusiness" class="btn btn-custom"><span id="searchTxt">Search&nbsp;&nbsp;<i
-                class="fas fa-search"></i></span><i class="fas fa-search srcIcon"></i></div>
+          <a id="srcBusiness" class="btn btn-custom"><span id="searchTxt">Search&nbsp;&nbsp;<i
+                class="fas fa-search"></i></span><i class="fas fa-search srcIcon"></i></a>
         </div>
       </form>
 
@@ -104,10 +103,12 @@
     <div id="searchResults"></div>
     <div id="reviewResults" class="card-columns"></div>
     <!-- card for when there's no reviews that match the search -->
+    
+    
     <div id="noResults" class="card noReview d-none">
       <h5 class="card-header bg-danger">No reviews found</h5>
       <div class="card-body">
-        <h5 class="card-title">This business has not yet been reviewed by any user.</h5>
+        <h5 class="card-title">No businesses matching this search have been reviewed yet by any user.</h5>
         <!-- write review modal -->
         <div>
           <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal">
@@ -152,14 +153,7 @@
                       <div class="col-sm-6">
                         <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
                         <select class="form-control" id="businessType">
-                          <option selected>Choose...</option>
-                          <option>Populate</option>
-                          <option>With</option>
-                          <option>Business</option>
-                          <option>Types</option>
-                          <option>Using</option>
-                          <option>Javascript</option>
-                          <option>Other</option>
+                          <option value="">Business Type</option>
                         </select>
                       </div>
                     </div>
@@ -347,9 +341,14 @@
   <!-- autocompleter -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+        let autojQuery = $.noConflict(true);
+      </script>
   <!-- rateYo -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-
+<script>
+  let rateYojQuery = $.noConflict(true);
+</script>
   <!-- axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- our JS -->
