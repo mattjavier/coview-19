@@ -49,7 +49,7 @@ router.get('/businesses/:state', (req, res) => {
 })
 
 // GET all businesses by location, type, name ('/api/businesses/:name/:type')
-router.get('/businesses/:name/:type/', (req, res) => {
+router.get('/businesses/:name/:type', (req, res) => {
   Business.findAll({
     where: { name: req.params.name, type: req.params.type },
     include: [Rating]
