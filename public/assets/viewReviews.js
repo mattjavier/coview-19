@@ -534,10 +534,79 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
             </div>
           </div>
         </div>
+
+
+
+
+
+<div class="accordion" id="accordionExample${business.id}">
+  <div class="card">
+    <div class="card-header" id="heading${business.id}">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${business.id}"
+          aria-expanded="true" aria-controls="collapse${business.id}">
+          Click to view reviews.
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapse${business.id}" class="collapse" aria-labelledby="heading${business.id}" data-parent="#accordionExample${business.id}">
+      <div id="${business.id}individualReviews" class="card-body">
+        No reviews yet for this business.
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
       </div>
       </div>
               `
           document.getElementById('searchResults').prepend(businessElem)
+
+
+          axios.get(`api/ratings/${business.id}`)
+            .then(({ data }) => {
+              console.log(data)
+              data.forEach(review => {
+                let reviewElem = document.createElement('div')
+                reviewElem.innerHTML = `
+              <div class="card userReview">
+        <div class="card-header">
+          <i class="fas fa-user"></i> ${review.username}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Overall: ${review.overallRating} <span id="overallStars" class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
+          <hr class="border-danger">
+          <p class="card-text">Mask Wearing:<br>${review.maskRating} <span id="maskStars" class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <p class="card-text">Social Distancing:<br>${review.socialDistanceRating} <span id="socialDistanceStars" class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <p class="card-text">Sanitation:<br> ${review.sanitationRating} <span id="sanitationStars" class="stars"><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                class="far fa-star"></i></span></p>
+          <hr class="border-danger">
+          <p class="card-text">${review.comment}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Created on ${review.createdAt}.</small>
+        </div>
+      </div>
+              `
+                document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
+              })
+            })
+            .catch(err => console.error(err))
         })
       }
     })
