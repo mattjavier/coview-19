@@ -1,8 +1,6 @@
 const router = require('express').Router()
 const { Business, Rating } = require('../models')
 
-
-
 // GET all businesses
 router.get('/businesses', (req, res) => {
   Business.findAll({ include: [Rating] })
@@ -14,6 +12,16 @@ router.get('/businesses', (req, res) => {
 router.post('/businesses/get', (req, res) => {
   Business.findAll({
     where: req.body,
+    include: [Rating]
+  })
+    .then(businesses => res.json(businesses))
+    .catch(err => console.log(err))
+})
+
+// GET businesses that match exactly this
+router.get('/businesses/:name/:type/:city/:state', (req, res) => {
+  Business.findAll({
+    where: { name: req.params.name, type: req.params.type, city: req.params.city, state: req.params.state },
     include: [Rating]
   })
     .then(businesses => res.json(businesses))
