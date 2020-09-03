@@ -12,6 +12,10 @@ Rating.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   overallRating: {
     type: DataTypes.FLOAT,
     allowNull: false
