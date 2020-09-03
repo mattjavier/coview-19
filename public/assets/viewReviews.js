@@ -111,166 +111,158 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           businessId = `${business.id}`
           let businessElem = document.createElement('div')
           businessElem.innerHTML = `
-       <div id="${business.id}" class="card business">
-      <h5 class="card-header row">
-        <div class="businessHead col-12 col-sm-6">
-          ${business.name} (${business.city}, ${business.state})
-        </div>
-        <div class="businessHead text-right col-12 col-sm-6">Overall:
-          <span id="overall">Stars</span>
-        </div>
-      </h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <h5 class="card-title">${business.type}</h5>
-          </div>
-          <div class="col-6 text-right">
-            <p class="card-title">Reviews: ${business.ratings.length}</p>
-          </div>
-        </div>
-        <p class="card-text">
-        <div class="row">
-
-          <div class="col-12 col-sm-4">
-            Mask Wearing: <span id="maskw">Stars</span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Social Distancing: <span id="sociald">Stars</span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Sanitation: <span id="sanitationr">Stars</span>
-          </div>
-        </div>
-        </p>
+            <div id="${business.id}" class="card business">
+              <h5 class="card-header row">
+                <div class="businessHead col-12 col-sm-6">
+                  ${business.name} (${business.city}, ${business.state})
+                </div>
+                <div class="businessHead text-right col-12 col-sm-6">Overall:
+                  <span id="overall">Stars</span>
+                </div>
+              </h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6">
+                    <h5 class="card-title">${business.type}</h5>
+                  </div>
+                  <div class="col-6 text-right">
+                    <p class="card-title">Reviews: ${business.ratings.length}</p>
+                  </div>
+                </div>
+                <p class="card-text">
+                  <div class="row">
+                    <div class="col-12 col-sm-4">
+                      Mask Wearing: <span id="maskw">Stars</span>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      Social Distancing: <span id="sociald">Stars</span>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      Sanitation: <span id="sanitationr">Stars</span>
+                    </div>
+                  </div>
+                </p>
                 <!-- write review modal -->
-        <div>
-          <button id="writeReview${business.id}" type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
-            Write Review
-          </button>
-
-          <!-- Modal Window -->
-          <div class="modal fade" id="writeReviewModal${business.id}" tabindex="-1" role="dialog"
-            aria-labelledby="writeReviewModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-
-                <!-- modal header -->
-                <div class="modal-header bg-danger">
-                  <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <div>
+                  <button id="writeReview${business.id}" type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
+                  Write Review
                   </button>
-                </div>
-                <!-- content of modal -->
-                <div class="modal-body">
-                  <form>
 
-                    <div class="form-group row">
-                      <label for="username" class="col-sm-4 col-form-label">Username:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="username" placeholder="e.g. John Doe or user123">
-                        <small id="userMessage" class="form-text text-muted">Choose a username that will display with
-                          your reivew.</small>
-                      </div>
-                    </div>
+                  <!-- Modal Window -->
+                  <div class="modal fade" id="writeReviewModal${business.id}" tabindex="-1" role="dialog"
+                    aria-labelledby="writeReviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
 
-                    <div class="form-group row">
-                      <label for="${business.id}businessName" class="col-sm-4 col-form-label">Business Name:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="${business.id}businessName" value="${business.name}">
-                      </div>
-                    </div>
+                        <!-- modal header -->
+                        <div class="modal-header bg-danger">
+                          <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <!-- content of modal -->
+                        <div class="modal-body">
+                          <form>
 
-                    <div class="form-group row">
-                      <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
-                      <div class="col-sm-6">
-                        <select class="form-control" id="${business.id}businessType">
-                          <option value="${business.type}" selected>${business.type}</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div>
+                            <div class="form-group row">
+                              <label for="username" class="col-sm-4 col-form-label">Username:</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="username" placeholder="e.g. John Doe or user123">
+                                <small id="userMessage" class="form-text text-muted">Choose a username that will display with your reivew.</small>
+                              </div>
+                            </div>
 
-                      <p>Where is this business located?</p>
+                            <div class="form-group row">
+                              <label for="${business.id}businessName" class="col-sm-4 col-form-label">Business Name:</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="${business.id}businessName" value="${business.name}">
+                              </div>
+                            </div>
 
-                      <div class="form-group row">
-                        <label for="city" class="col-sm-4 col-form-label">City:</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="${business.id}city" value="${business.city}">
+                            <div class="form-group row">
+                              <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
+                              <div class="col-sm-6">
+                                <select class="form-control" id="${business.id}businessType">
+                                  <option value="${business.type}" selected>${business.type}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div>
+                              <p>Where is this business located?</p>
+
+                              <div class="form-group row">
+                                <label for="city" class="col-sm-4 col-form-label">City:</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="${business.id}city" value="${business.city}">
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="state" class="col-sm-4 col-form-label">State:</label>
+                                <div class="col-sm-6">
+                                  <select class="form-control" id="${business.id}state">
+                                    <option value="${business.state}">${business.state}</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <p>Rate this business on the degree to which their employees and customers comply with the <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html" target="_blank">prevention recommendations</a> outlined by the CDC and other local authorities.</p>
+                              <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
+
+                              <div class="form-group row">
+                                <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
+                                <div class="col-sm-6">
+                                  <span id="maskModal">Stars</span>
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
+                                <div class="col-sm-6">
+                                  <span id="socialModal">Stars</span>
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
+                                <div class="col-sm-6">
+                                  <span id="sanitationModal">Stars</span>
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
+                                <div class="col-sm-6">
+                                  <span id="overallModal">Stars</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
+                              <div class="col-sm-8">
+                                <textarea class="form-control" id="${business.id}comments" rows="3"
+                                  placeholder="Enter comment here."></textarea>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+
+                        <div class="modal-footer">
+                          <!-- close button -->
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          <!-- create log in button -->
+                          <a id="${business.id}submit" class="btn btn-custom" href="#" role="button">Submit</a>
                         </div>
                       </div>
-
-                      <div class="form-group row">
-                        <label for="state" class="col-sm-4 col-form-label">State:</label>
-                        <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}state">
-                            <option value="${business.state}">${business.state}</option>
-                          </select>
-                        </div>
-                      </div>
                     </div>
-
-                    <div>
-                      <p>Rate this business on the degree to which their employees and customers comply with the <a
-                          href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
-                          target="_blank">prevention
-                          recommendations</a> outlined by the CDC and other local authorities.</p>
-                      <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
-
-                      <div class="form-group row">
-                        <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
-                        <div class="col-sm-6">
-                          <span id="maskModal">Stars</span>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
-                        <div class="col-sm-6">
-                          <span id="socialModal">Stars</span>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
-                        <div class="col-sm-6">
-                          <span id="sanitationModal">Stars</span>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
-                        <div class="col-sm-6">
-                          <span id="overallModal">Stars</span>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
-                      <div class="col-sm-8">
-                        <textarea class="form-control" id="${business.id}comments" rows="3"
-                          placeholder="Enter comment here."></textarea>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div class="modal-footer">
-                  <!-- close button -->
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <!-- create log in button -->
-                  <a id="${business.id}submit" class="btn btn-custom" href="#" role="button">Submit</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      </div>
-        `
+          `
 
           setTimeout(() => {
             axios.get(`/api/ratings/avg-overall/${business.id}`)
@@ -416,199 +408,232 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         data.forEach(business => {
           let businessElem = document.createElement('div')
           businessElem.innerHTML = `
-        <div id="${business.id}" class="card business">
-      <h5 class="card-header row">
-        <div class="businessHead col-12 col-sm-6">
-          ${business.name} (${business.city}, ${business.state})
-        </div>
-        <div class="businessHead text-right col-12 col-sm-6">Overall:
-          <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-        </div>
-      </h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <h5 class="card-title">${business.type}</h5>
-          </div>
-          <div class="col-6 text-right">
-            <p class="card-title">Reviews: ${business.ratings.length}</p>
-          </div>
-        </div>
-        <p class="card-text">
-        <div class="row">
-
-          <div class="col-12 col-sm-4">
-            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-          <div class="col-12 col-sm-4">
-            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
-          </div>
-        </div>
-        </p>
+            <div id="${business.id}" class="card business">
+              <h5 class="card-header row">
+                <div class="businessHead col-12 col-sm-6">
+                  ${business.name} (${business.city}, ${business.state})
+                </div>
+                <div class="businessHead text-right col-12 col-sm-6">
+                  Overall: <span id="starsListOverall${business.id}">Stars</span>
+                </div>
+              </h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6">
+                    <h5 class="card-title">${business.type}</h5>
+                  </div>
+                  <div class="col-6 text-right">
+                    <p class="card-title">Reviews: ${business.ratings.length}</p>
+                  </div>
+                </div>
+                <p class="card-text">
+                  <div class="row">
+                    <div class="col-12 col-sm-4">
+                      Mask Wearing: <span id="starsListMask${business.id}">Stars</span>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      Social Distancing: <span id="starsListSocial${business.id}">Stars</span>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      Sanitation: <span id="starsListSanitation${business.id}">Stars</span>
+                    </div>
+                  </div>
+                </p>
                 <!-- write review modal -->
-        <div>
-          <button id="writeReview${business.id}" type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">
-            Write Review
-          </button>
+                <div>
+                  <button id="writeReview${business.id}" type="button" class="btn btn-custom" data-toggle="modal" data-target="#writeReviewModal${business.id}">Write Review</button>
 
-          <!-- Modal Window -->
-          <div class="modal fade" id="writeReviewModal${business.id}" tabindex="-1" role="dialog"
-            aria-labelledby="writeReviewModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
+                  <!-- Modal Window -->
+                  <div class="modal fade" id="writeReviewModal${business.id}" tabindex="-1" role="dialog" aria-labelledby="writeReviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
 
-                <!-- modal header -->
-                <div class="modal-header bg-danger">
-                  <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <!-- content of modal -->
-                <div class="modal-body">
-                  <form>
+                      <!-- modal header -->
+                      <div class="modal-header bg-danger">
+                        <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <!-- content of modal -->
+                      <div class="modal-body">
+                        <form>
 
-                    <div class="form-group row">
-                      <label for="username" class="col-sm-4 col-form-label">Username:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="username" placeholder="e.g. John Doe or user123">
-                        <small id="userMessage" class="form-text text-muted">Choose a username that will display with
-                          your reivew.</small>
+                          <div class="form-group row">
+                            <label for="username" class="col-sm-4 col-form-label">Username:</label>
+                            <div class="col-sm-6">
+                            <input type="text" class="form-control" id="username" placeholder="e.g. John Doe or user123">
+                              <small id="userMessage" class="form-text text-muted">Choose a username that will display with your reivew.</small>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="${business.id}businessName" class="col-sm-4 col-form-label">Business Name:</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="${business.id}businessName" value="${business.name}">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
+                            <div class="col-sm-6">
+                              <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
+                              <select class="form-control" id="${business.id}businessType">
+                                <option value="${business.type}" selected>${business.type}</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div>
+
+                            <p>Where is this business located?</p>
+
+                            <div class="form-group row">
+                              <label for="city" class="col-sm-4 col-form-label">City:</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="${business.id}city" value="${business.city}">
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="state" class="col-sm-4 col-form-label">State:</label>
+                              <div class="col-sm-6">
+                                <select class="form-control" id="${business.id}state">
+                                  <option value="${business.state}">${business.state}</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <p>Rate this business on the degree to which their employees and customers comply with the <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html" target="_blank">prevention recommendations</a> outlined by the CDC and other local authorities.</p>
+                            <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
+
+                            <div class="form-group row">
+                              <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
+                              <div class="col-sm-6">
+                                <div id="maskRev${business.id}">Stars</div>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
+                              <div class="col-sm-6">
+                                <div id="socialRev${business.id}">Stars</div>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
+                              <div class="col-sm-6">
+                              <div id="sanitizeRev${business.id}">Stars</div>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
+                              <div class="col-sm-6">
+                                <div id="overallRev${business.id}">Stars</div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
+                            <div class="col-sm-8">
+                              <textarea class="form-control" id="${business.id}comments" rows="3"
+                                placeholder="Enter comment here."></textarea>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="modal-footer">
+                        <!-- close button -->
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <!-- create log in button -->
+                        <a id="${business.id}submit" class="btn btn-custom" href="#" role="button">Submit</a>
                       </div>
                     </div>
-
-                    <div class="form-group row">
-                      <label for="${business.id}businessName" class="col-sm-4 col-form-label">Business Name:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="${business.id}businessName" value="${business.name}">
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="businessType" class="col-sm-4 col-form-label">Business Type:</label>
-                      <div class="col-sm-6">
-                        <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
-                        <select class="form-control" id="${business.id}businessType">
-                          <option value="${business.type}" selected>${business.type}</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div>
-
-                      <p>Where is this business located?</p>
-
-                      <div class="form-group row">
-                        <label for="city" class="col-sm-4 col-form-label">City:</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="${business.id}city" value="${business.city}">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="state" class="col-sm-4 col-form-label">State:</label>
-                        <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}state">
-                            <option value="${business.state}">${business.state}</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <p>Rate this business on the degree to which their employees and customers comply with the <a
-                          href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
-                          target="_blank">prevention
-                          recommendations</a> outlined by the CDC and other local authorities.</p>
-                      <small class="form-text text-muted">(1 star = poor, 5 stars = excellent)</small>
-
-                      <div class="form-group row">
-                        <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
-                        <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}maskUse">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
-                        <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}socialDistancing">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
-                        <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}sanitization">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
-                        <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}maskUse">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="comments" class="col-sm-4 col-form-label">Comments:</label>
-                      <div class="col-sm-8">
-                        <textarea class="form-control" id="${business.id}comments" rows="3"
-                          placeholder="Enter comment here."></textarea>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div class="modal-footer">
-                  <!-- close button -->
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <!-- create log in button -->
-                  <a id="${business.id}submit" class="btn btn-custom" href="#" role="button">Submit</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      </div>
-              `
+          `
+
+          setTimeout(() => {
+            axios.get(`/api/ratings/avg-overall/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery(`#starsListOverall${business.id}`).rateYo({
+                  rating: data[0].overall_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+            
+            axios.get(`/api/ratings/avg-mask/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery(`#starsListMask${business.id}`).rateYo({
+                  rating: data[0].mask_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+          
+            axios.get(`/api/ratings/avg-social/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery(`#starsListSocial${business.id}`).rateYo({
+                  rating: data[0].social_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+          
+            axios.get(`/api/ratings/avg-sanitation/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery(`#starsListSanitation${business.id}`).rateYo({
+                  rating: data[0].sanitation_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))            
+
+            rateYojQuery(`#overallRev${business.id}`).rateYo({
+              rating: 1.5,
+              halfStar: true,
+              
+              starWidth: "20px"
+            })
+          
+            rateYojQuery(`#maskRev${business.id}`).rateYo({
+              rating: 1.5,
+              halfStar: true,
+            
+              starWidth: "20px"
+            })
+          
+            rateYojQuery(`#socialRev${business.id}`).rateYo({
+              rating: 1.5,
+              halfStar: true,
+              
+              starWidth: "20px"
+            })
+          
+            rateYojQuery(`#sanitizeRev${business.id}`).rateYo({
+              rating: 1.5,
+              halfStar: true,
+              
+              starWidth: "20px"
+            })
+          }, 500)
           document.getElementById('searchResults').prepend(businessElem)
         })
       }
