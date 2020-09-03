@@ -17,8 +17,13 @@ form {
   display: inline-block;
 }
 
-.business {
+.accordion {
   margin-bottom: 32px;
+}
+
+.bg-custom {
+  background-color: #343a40;
+  color: #f8f9fa;
 }
 
 .stars {
@@ -30,12 +35,18 @@ form {
   margin: 0px;
 }
 
-.card {
+#noResults {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+
+.test {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  background-color: rgb(212, 212, 212);
 }
 
 .noReview {

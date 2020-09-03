@@ -54,10 +54,9 @@
     </div>
   </nav>
 
-
   <div class="jumbotron jumbotron-fluid text-light">
     <h1 class="display-4">View Reviews</h1>
-    <p class="lead">Search by location, business type, and/or buisness name to find reviews of businesses.</p>
+    <p class="lead">Search by location, business type, and/or business name to find reviews of businesses.</p>
     <div class="row justify-content-center">
 
       <form class="row justify-content-center">
@@ -92,8 +91,8 @@
         </div>
         <div
           class="col-12 offset-sm-11 col-sm-1 offset-md-0 d-flex justify-content-sm-end justify-content-center justify-content-md-start">
-          <div id="srcBusiness" class="btn btn-custom"><span id="searchTxt">Search&nbsp;&nbsp;<i
-                class="fas fa-search"></i></span><i class="fas fa-search srcIcon"></i></div>
+          <a id="srcBusiness" class="btn btn-custom"><span id="searchTxt">Search&nbsp;&nbsp;<i
+                class="fas fa-search"></i></span><i class="fas fa-search srcIcon"></i></a>
         </div>
       </form>
 
@@ -104,6 +103,8 @@
     <div id="searchResults"></div>
     <div id="reviewResults" class="card-columns"></div>
     <!-- card for when there's no reviews that match the search -->
+    
+    
     <div id="noResults" class="card noReview d-none">
       <h5 class="card-header bg-danger">No reviews found</h5>
       <div class="card-body">
