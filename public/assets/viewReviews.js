@@ -1,3 +1,16 @@
+// stars in reviewed card coming up after search
+
+// $(function () {
+ 
+  // $("#overall").rateYo({
+  //   rating: 1.5,
+  //   halfStar: true,
+  //   readOnly: true
+  // });
+// });
+
+
+
 // business name auto complete
 $(document).ready(function () {
   $.ajax('/api/businesses')
@@ -114,8 +127,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           ${business.name} (${business.city}, ${business.state})
         </div>
         <div class="businessHead text-right col-12 col-sm-6">Overall:
-          <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+        <span id="overall">Stars</span>
         </div>
       </h5>
       <div class="card-body">
@@ -131,16 +143,13 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         <div class="row">
 
           <div class="col-12 col-sm-4">
-            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Mask Wearing: <span id="maskw">Stars</span>
           </div>
           <div class="col-12 col-sm-4">
-            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Social Distancing: <span id="sociald">Stars</span>
           </div>
           <div class="col-12 col-sm-4">
-            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Sanitation: <span id="sanitationr">Stars</span>
           </div>
         </div>
         </p>
@@ -300,6 +309,37 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
       </div>
       </div>
         `
+setTimeout(() => {
+  rateYojQuery("#overall").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    readOnly: true,
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#maskw").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    readOnly: true,
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#sociald").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    readOnly: true,
+    starWidth: "20px"
+  })
+
+  rateYojQuery("#sanitationr").rateYo({
+    rating: 1.5,
+    halfStar: true,
+    readOnly: true,
+    starWidth: "20px"
+  })
+
+},500)
+        
           document.getElementById('searchResults').prepend(businessElem)
         })
 
@@ -314,18 +354,11 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           <i class="fas fa-user"></i> ${review.username}
         </div>
         <div class="card-body">
-          <h5 class="card-title">Overall: ${review.overallRating} <span id="overallStars" class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
+          <h5 class="card-title">Overall: ${review.overallRating} <span id="overallCard">Stars</span></h5>
           <hr class="border-danger">
-          <p class="card-text">Mask Wearing:<br>${review.maskRating} <span id="maskStars" class="stars"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
-                class="far fa-star"></i></span></p>
-          <p class="card-text">Social Distancing:<br>${review.socialDistanceRating} <span id="socialDistanceStars" class="stars"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
-                class="far fa-star"></i></span></p>
-          <p class="card-text">Sanitation:<br> ${review.sanitationRating} <span id="sanitationStars" class="stars"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
-                class="far fa-star"></i></span></p>
+          <p class="card-text">Mask Wearing:<br>${review.maskRating} <span id="maskCard">Stars</span></p>
+          <p class="card-text">Social Distancing:<br>${review.socialDistanceRating} <span id="socialCard">Stars</span></p></p>
+          <p class="card-text">Sanitation:<br> ${review.sanitationRating} <span id="sanitationCard">Stars</span></p>
           <hr class="border-danger">
           <p class="card-text">${review.comment}</p>
         </div>
@@ -334,6 +367,44 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         </div>
       </div>
               `
+              setTimeout(() => {
+                rateYojQuery("#overallCard").rateYo({
+                  rating: 1.5,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                rateYojQuery("#maskCard").rateYo({
+                  rating: 1.5,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                rateYojQuery("#socialCard").rateYo({
+                  rating: 1.5,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                 rateYojQuery("#socialCard").rateYo({
+                  rating: 1.5,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                rateYojQuery("#sanitationCard").rateYo({
+                  rating: 1.5,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+              },500)
+
               document.getElementById('reviewResults').prepend(reviewElem)
             })
           })
