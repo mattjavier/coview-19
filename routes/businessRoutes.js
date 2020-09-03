@@ -8,20 +8,20 @@ router.get('/businesses', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// GET all businesses by location, type, name ('/api/businesses/:name')
-router.get('/businesses/:name', (req, res) => {
+// GET all businesses by type ('/api/businesses/:type')
+router.get('/businesses/:type', (req, res) => {
   Business.findAll({
-    where: { name: req.params.name },
+    where: { type: req.params.type },
     include: [Rating]
   })
     .then(businesses => res.json(businesses))
     .catch(err => console.log(err))
 })
 
-// GET all businesses by type ('/api/businesses/:type')
-router.get('/businesses/:type', (req, res) => {
+// GET all businesses by location, type, name ('/api/businesses/:name')
+router.get('/businesses/:name', (req, res) => {
   Business.findAll({
-    where: { type: req.params.type },
+    where: { name: req.params.name },
     include: [Rating]
   })
     .then(businesses => res.json(businesses))
