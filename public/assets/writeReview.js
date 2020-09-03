@@ -81,7 +81,6 @@ $(document).ready(function() {
       .then(({ data }) => {
         if (data.length > 0) {
           let businessId = data[0].id
-          let userId = 2
           axios.post('/api/ratings', { 
             name: name, 
             type: type, 
@@ -91,25 +90,40 @@ $(document).ready(function() {
             sanitationRating: sanitationRating, 
             socialDistanceRating: socialDistanceRating, 
             comment: comment, 
-            userId: userId, 
             businessId: businessId 
           })
-            .then(business => {
-              console.log(business)
+            .then(({ data }) => {
+              console.log(data)
               // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
-          }
-        // } else {
-        //   // create business, then create review
-        //   axios.post('/api/businesses', {
-        //     name: name,
-        //     type: type,
-        //     city: city,
-        //     state: state
-        //   })
-        //     .then()
-        // }
+        } else {
+          // create business, then create review
+          axios.post('/api/businesses', {
+            name: name,
+            type: type,
+            city: city,
+            state: state
+          })
+            .then(({ data }) => {
+              axios.post('/api/ratings', {
+                name: name,
+                type: type,
+                username: username,
+                overallRating: overallRating,
+                maskRating: maskRating,
+                sanitationRating: sanitationRating,
+                socialDistanceRating: socialDistanceRating,
+                comment: comment,
+                businessId: data.id
+              })
+                .then(({ data }) => {
+                  console.log(data)
+                })
+                .catch(err => console.log(err))
+            })
+            .catch(err => console.log(err))
+        }
       })
       .catch(err => console.log(err))
   })
