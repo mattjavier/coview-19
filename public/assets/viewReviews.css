@@ -13,13 +13,8 @@ form {
   height: fit-content;
 }
 
-.accordion {
+.business {
   margin-bottom: 32px;
-}
-
-.bg-custom {
-  background-color: #343a40;
-  color: #f8f9fa;
 }
 
 .stars {

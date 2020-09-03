@@ -107,7 +107,8 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         data.forEach(business => {
           let businessElem = document.createElement('div')
           businessElem.innerHTML = `
-        <div id="${business.id}" class="card business">
+          <div class="rounded-top">
+        <div id="${business.id}" class="card business border-0">
       <h5 class="card-header row">
         <div class="businessHead col-12 col-sm-6">
           ${business.name} (${business.city}, ${business.state})
@@ -126,7 +127,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
             <p class="card-title">Reviews: ${business.ratings.length}</p>
           </div>
         </div>
-        <p class="card-text">
         <div class="row">
 
           <div class="col-12 col-sm-4">
@@ -142,17 +142,16 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                 class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
           </div>
         </div>
-        </p>
+       
 
  </div>
-      </div>
 
 
 
 
-<div class="accordion" id="accordionExample${business.id}">
-  <div id="card${business.id}" class="card border-0">
-    <div class="test card-header" id="heading${business.id}">
+<div class="accordion rounded-bottom" id="accordionExample${business.id}">
+  <div id="card${business.id}" class="card border-0 rounded-bottom">
+    <div class="test card-header rounded-bottom" id="heading${business.id}">
       <div class="mb-0 row">
         <div class="col-6">
                         <!-- write review modal -->
@@ -327,7 +326,8 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
       </div>
     </div>
   </div>
-
+      </div>
+</div>
 
 
 
