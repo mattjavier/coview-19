@@ -12,6 +12,8 @@ $(document).ready(function () {
 document.getElementById('srcBusiness').addEventListener('click', event => {
   event.preventDefault()
 
+  document.getElementById('searchResults').innerHTML = ''
+
   let name = document.getElementById('businessName').value
 
   let type = document.getElementById('typeSrc').options[document.getElementById('typeSrc').selectedIndex].value
@@ -25,23 +27,21 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
   if (name !== '') {
     search = '/' + name
-    console.log(search)
   }
 
   if (type !== '') {
     search = search + '/' + type
-    console.log(search)
   }
 
   if (city !== '') {
     search = search + '/' + city
-    console.log(search)
   }
 
   if (state !== '') {
     search = search + '/' + state
-    console.log(search)
   }
+
+  console.log(search)
 
   // generic search handler
   axios.get('api/businesses' + search)
