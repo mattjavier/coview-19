@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset css -->
+    <link rel="stylesheet" href="../assets/reset.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- our css -->
+    <link rel="stylesheet" href="../assets/global.css" />
+    <link rel="stylesheet" href="../assets/writeReview.css" />
+    <!-- favicon from Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=3133'>Iconpacks</a> -->
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- autocomplete -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!-- rateYo -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css"
+    />
+
+    <title>COVIEW-19 | Write a Review</title>
+  </head>
+
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark text-light bg-dark">
+      <a class="navbar-brand" href="/home"><img src="../assets/images/favicon.png" alt="logo: red virus with a c on it" height="25px">COVIEW-19</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/view">View Reviews</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-danger" href="/write">Write a Review<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid text-light">
+      <h1 class="display-4">Write a Review</h1>
+      <p class="lead">
+        Describe what you've observed for COVID-19 compliance at a business you
+        have frequented recently.
+      </p>
+    </div>
+
+    <main class="container">
+      <!-- <h1 class="text-light">Write a Review</h1> -->
+
+      <form class="col-12 col-md-9 text-light">
+        <div class="form-group row">
+          <label for="username" class="col-sm-2 col-form-label"
+            >Username:</label
+          >
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="e.g. John Doe or user123"
+            />
+            <small id="userMessage" class="form-text text-muted"
+              >Choose a username that will display with your reivew.</small
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="businessName" class="col-sm-2 col-form-label"
+            >Business Name:</label
+          >
+          <div class="col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              id="businessName"
+              placeholder="Business Name"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="businessType" class="col-sm-2 col-form-label"
+            >Business Type:</label
+          >
+          <div class="col-sm-4">
+            <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
+            <select class="form-control" id="businessType">
+              <option selected>Choose...</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <p>Where is this business located?</p>
+
+          <div class="form-group row">
+            <label for="city" class="col-sm-2 col-form-label">City:</label>
+            <div class="col-sm-4">
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                placeholder="City Name"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="state" class="col-sm-2 col-form-label">State:</label>
+            <div class="col-sm-4">
+              <select class="form-control" id="state">
+                <option selected>Choose...</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p>
+            Rate this business on the degree to which their employees and
+            customers comply with the
+            <a
+              href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
+              class="text-danger"
+              target="_blank"
+              >prevention recommendations</a
+            >
+            outlined by the CDC and other local authorities.
+          </p>
+          <small id="starMessage" class="form-text text-muted"
+            >(1 star = poor, 5 stars = excellent)</small
+          >
+
+          <div class="form-group row">
+            <label for="maskUse" class="col-sm-2 col-form-label"
+              >Mask use:</label
+            >
+            <div class="col-sm-4">
+              <div id="mask">Stars</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="socialDistancing" class="col-sm-2 col-form-label"
+              >Social Distancing:</label
+            >
+            <div class="col-sm-4">
+              <div id="social">Stars</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="sanitization" class="col-sm-2 col-form-label"
+              >Sanitization:</label
+            >
+            <div class="col-sm-4">
+              <div id="sanitation">Stars</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="maskUse" class="col-sm-2 col-form-label"
+              >Overall:</label
+            >
+            <div class="col-sm-4">
+              <div id="overall">Stars</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="comments" class="col-sm-2 col-form-label"
+            >Comments:</label
+          >
+          <div class="col-sm-6">
+            <textarea
+              class="form-control"
+              id="comments"
+              rows="3"
+              placeholder="Enter comment here."
+            ></textarea>
+          </div>
+        </div>
+
+        <a id="submit" type="submit" class="btn btn-custom" data-toggle="modal" data-target="#reviewModal">Submit</a>
+
+        <!-- reviewModal -->
+        <div class="modal fade text-secondary" id="reviewModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="reviewModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div id="review" class="modal-body">
+
+              </div>
+              <div class="modal-footer">
+                <button id="resetReview" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <br /><br />
+    </main>
+    <footer
+      id="footer"
+      class="navbar fixed-bottom text-light bg-dark justify-content-center"
+    >
+      COVIEW-19 | &copy; 2020 | U.C. Irvine Coding Boot Camp
+    </footer>
+
+    <!-- Javascript -->
+    <!-- bootstrap js -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!-- rateYo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <script>
+      let rateYojQuery = $.noConflict(true);
+    </script>
+    <!-- autocomplete -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      let autojQuery = $.noConflict(true);
+    </script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- our JS -->
+    <script src="../assets/writeReview.js"></script>
+  </body>
+</html>
