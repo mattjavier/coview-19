@@ -1,20 +1,18 @@
 // business name auto complete
-$(document).ready(function () {
-  $.ajax('/api/businesses')
-    .then(businesses => {
-      businesses = businesses.map(business => business.name)
+axios.get('/api/businesses')
+.then(({ data }) => {
+  data = data.map(business => business.name)
 
-      $('#businessName').autocomplete({
-        source: businesses
-      })
-    })
+  autojQuery('#businessName').autocomplete({
+    source: data
+  })
 })
 
 // city autocompleter
 axios.get('/api/business-locations')
   .then(({ data }) => {
     data = data.map(location => location.city)
-    $('#citySrc').autocomplete({
+    autojQuery('#citySrc').autocomplete({
       source: data
     })
   })
@@ -52,6 +50,13 @@ states.forEach(state => {
   document.getElementById('stateSrc').append(optionElem)
 })
 
+states.forEach(state => {
+  let optionElem = document.createElement('option')
+  optionElem.value = state
+  optionElem.textContent = state
+  document.getElementById('state').append(optionElem)
+})
+
 const buildWhere = (name, type, city, state) => {
   let where = {}
   if (name.length > 0) {
@@ -72,8 +77,6 @@ const buildWhere = (name, type, city, state) => {
 
   return where
 }
-
-
 
 document.getElementById('srcBusiness').addEventListener('click', event => {
   event.preventDefault()
@@ -114,8 +117,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           ${business.name} (${business.city}, ${business.state})
         </div>
         <div class="businessHead text-right col-12 col-sm-6">Overall:
-          <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+          <span id="overall">Stars</span>
         </div>
       </h5>
       <div class="card-body">
@@ -131,16 +133,13 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
         <div class="row">
 
           <div class="col-12 col-sm-4">
-            Mask Wearing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Mask Wearing: <span id="maskw">Stars</span>
           </div>
           <div class="col-12 col-sm-4">
-            Social Distancing: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Social Distancing: <span id="sociald">Stars</span>
           </div>
           <div class="col-12 col-sm-4">
-            Sanitation: <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span>
+            Sanitation: <span id="sanitationr">Stars</span>
           </div>
         </div>
         </p>
@@ -222,56 +221,28 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                       <div class="form-group row">
                         <label for="maskUse" class="col-sm-4 col-form-label">Mask use:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}maskUse">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                          <span id="maskModal">Stars</span>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="socialDistancing" class="col-sm-4 col-form-label">Social Distancing:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}socialDistancing">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                          <span id="socialModal">Stars</span>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="sanitization" class="col-sm-4 col-form-label">Sanitization:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}sanitization">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                          <span id="sanitationModal">Stars</span>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label for="maskUse" class="col-sm-4 col-form-label">Overall:</label>
                         <div class="col-sm-6">
-                          <select class="form-control" id="${business.id}maskUse">
-                            <option selected>Choose...(these will be stars later)</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                          <span id="overallModal">Stars</span>
                         </div>
                       </div>
 
@@ -300,6 +271,82 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
       </div>
       </div>
         `
+
+          setTimeout(() => {
+            axios.get(`/api/ratings/avg-overall/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery("#overall").rateYo({
+                  rating: data[0].overall_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+            
+            axios.get(`/api/ratings/avg-mask/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery("#maskw").rateYo({
+                  rating: data[0].mask_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+          
+            axios.get(`/api/ratings/avg-social/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery("#sociald").rateYo({
+                  rating: data[0].social_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+          
+            axios.get(`/api/ratings/avg-sanitation/${business.id}`)
+              .then(({ data }) => {
+                rateYojQuery("#sanitationr").rateYo({
+                  rating: data[0].sanitation_rating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+              })
+              .catch(err => console.log(err))
+          
+            rateYojQuery("#overallModal").rateYo({
+              rating: 1.5,
+              halfStar: true,
+              
+              starWidth: "20px"
+            })
+          
+            rateYojQuery("#maskModal").rateYo({
+              rating: 1.5,
+              halfStar: true,
+            
+              starWidth: "20px"
+            })
+          
+            rateYojQuery("#socialModal").rateYo({
+              rating: 1.5,
+              halfStar: true,
+              
+              starWidth: "20px"
+            })
+          
+            rateYojQuery("#sanitationModal").rateYo({
+              rating: 1.5,
+              halfStar: true,
+              
+              starWidth: "20px"
+            })
+          
+          },500)
+
           document.getElementById('searchResults').prepend(businessElem)
         })
 
@@ -309,31 +356,56 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
             data.forEach(review => {
               let reviewElem = document.createElement('div')
               reviewElem.innerHTML = `
-              <div class="card userReview">
-        <div class="card-header">
-          <i class="fas fa-user"></i> ${review.username}
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Overall: ${review.overallRating} <span id="overallStars" class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></span></h5>
-          <hr class="border-danger">
-          <p class="card-text">Mask Wearing:<br>${review.maskRating} <span id="maskStars" class="stars"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
-                class="far fa-star"></i></span></p>
-          <p class="card-text">Social Distancing:<br>${review.socialDistanceRating} <span id="socialDistanceStars" class="stars"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
-                class="far fa-star"></i></span></p>
-          <p class="card-text">Sanitation:<br> ${review.sanitationRating} <span id="sanitationStars" class="stars"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
-                class="far fa-star"></i></span></p>
-          <hr class="border-danger">
-          <p class="card-text">${review.comment}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Created on ${review.createdAt}.</small>
-        </div>
-      </div>
+                <div class="card userReview">
+                  <div class="card-header">
+                    <i class="fas fa-user"></i> ${review.username}
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Overall: <span id="overallCard${review.id}">Stars</span></h5>
+                    <hr class="border-danger">
+                    <p class="card-text">Mask Wearing:<br><span id="maskCard${review.id}">Stars</span</p>
+                    <p class="card-text">Social Distancing:<br> <span id="socialCard${review.id}">Stars</span></p>
+                    <p class="card-text">Sanitation:<br> <span id="sanitationCard${review.id}">Stars</span></p>
+                    <hr class="border-danger">
+                    <p class="card-text">${review.comment}</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">Created on ${moment(review.createdAt.substring(0, 10)).format('MM/DD/YYYY')}.</small>
+                  </div>
+                </div>
               `
+
+              setTimeout(() => {
+                rateYojQuery(`#overallCard${review.id}`).rateYo({
+                  rating: review.overallRating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                rateYojQuery(`#maskCard${review.id}`).rateYo({
+                  rating: review.maskRating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                rateYojQuery(`#socialCard${review.id}`).rateYo({
+                  rating: review.socialDistanceRating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+                rateYojQuery(`#sanitationCard${review.id}`).rateYo({
+                  rating: review.sanitationRating,
+                  halfStar: true,
+                  readOnly: true,
+                  starWidth: "20px"
+                })
+
+              },500)
+
               document.getElementById('reviewResults').prepend(reviewElem)
             })
           })

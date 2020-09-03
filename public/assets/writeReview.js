@@ -72,24 +72,26 @@ $(document).ready(function() {
     document.getElementById('state').selectedIndex = 0
     document.getElementById('comments').value = ''
     
-    rateYojQuery("#mask").rateYo({
-      rating: 1.5,
-      halfStar: true
-    })
-  
-    rateYojQuery("#social").rateYo({
-      rating: 1.5,
-      halfStar: true
-    })
-  
-    rateYojQuery("#sanitation").rateYo({
-      rating: 1.5,
-      halfStar: true
-    })
-  
-    rateYojQuery("#overall").rateYo({
-      rating: 1.5,
-      halfStar: true
+    setTimeout(() => {
+      rateYojQuery("#mask").rateYo({
+        rating: 1.5,
+        halfStar: true
+      })
+    
+      rateYojQuery("#social").rateYo({
+        rating: 1.5,
+        halfStar: true
+      })
+    
+      rateYojQuery("#sanitation").rateYo({
+        rating: 1.5,
+        halfStar: true
+      })
+    
+      rateYojQuery("#overall").rateYo({
+        rating: 1.5,
+        halfStar: true
+      })
     })
   })
 
@@ -133,25 +135,59 @@ $(document).ready(function() {
                       ${data.username}
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Overall: ${data.overallRating}</h5>
+                      <h5 class="card-title">Overall:</h5>
+                      <div class="col-sm-4">
+                        <div id="overallRev">Stars</div>
+                      </div>
                       <hr>
-                      <p class="card-text">
-                        Mask Wearing: ${data.maskRating}
-                      </p>
-                      <p class="card-text">
-                        Sanitation Rating: ${data.sanitationRating}
-                      </p>
-                      <p class="card-text">
-                        Social Distancing Rating: ${data.socialDistanceRating}
-                      </p>
+                      <div class="card-text">
+                        Mask Wearing: 
+                        <div class="col-sm-4">
+                          <div id="maskRev">Stars</div>
+                        </div>
+                      </div>
+                      <div class="card-text">
+                        Sanitation Rating:
+                        <div class="col-sm-4">
+                          <div id="sanitationRev">Stars</div>
+                        </div>
+                      </div>
+                      <div class="card-text">
+                        Social Distancing Rating: 
+                        <div class="col-sm-4">
+                          <div id="socialRev">Stars</div>
+                        </div>
+                      </div>
                       <hr>
-                      <p class="card-text">
+                      <div class="card-text">
                         ${data.comment}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               `
+
+              setTimeout(() => {
+                rateYojQuery("#maskRev").rateYo({
+                  rating: data.maskRating,
+                  readOnly: true
+                })
+              
+                rateYojQuery("#socialRev").rateYo({
+                  rating: data.socialDistanceRating,
+                  readOnly: true
+                })
+              
+                rateYojQuery("#sanitationRev").rateYo({
+                  rating: data.sanitationRating,
+                  readOnly: true
+                })
+              
+                rateYojQuery("#overallRev").rateYo({
+                  rating: data.overallRating,
+                  readOnly: true
+                })
+              }, 500)
               // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
