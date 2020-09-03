@@ -63,6 +63,36 @@ $(document).ready(function() {
     halfStar: true
   })
 
+  // reset
+  document.getElementById('resetReview').addEventListener('click', () => {
+    document.getElementById('username').value = ''
+    document.getElementById('businessName').value = ''
+    document.getElementById('city').value = ''
+    document.getElementById('businessType').selectedIndex = 0
+    document.getElementById('state').selectedIndex = 0
+    document.getElementById('comments').value = ''
+    
+    rateYojQuery("#mask").rateYo({
+      rating: 1.5,
+      halfStar: true
+    })
+  
+    rateYojQuery("#social").rateYo({
+      rating: 1.5,
+      halfStar: true
+    })
+  
+    rateYojQuery("#sanitation").rateYo({
+      rating: 1.5,
+      halfStar: true
+    })
+  
+    rateYojQuery("#overall").rateYo({
+      rating: 1.5,
+      halfStar: true
+    })
+  })
+
   // submit button
   $('#submit').click(function(event) {
     event.preventDefault()
@@ -94,6 +124,34 @@ $(document).ready(function() {
           })
             .then(({ data }) => {
               console.log(data)
+              document.getElementById('reviewModalLabel').textContent = `Your review for ${data.business.name}`
+
+              document.getElementById('review').innerHTML = `
+                <div class="card-deck text-secondary">
+                  <div class="card">
+                    <div class="card-header">
+                      ${data.username}
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Overall: ${data.overallRating}</h5>
+                      <hr>
+                      <p class="card-text">
+                        Mask Wearing: ${data.maskRating}
+                      </p>
+                      <p class="card-text">
+                        Sanitation Rating: ${data.sanitationRating}
+                      </p>
+                      <p class="card-text">
+                        Social Distancing Rating: ${data.socialDistanceRating}
+                      </p>
+                      <hr>
+                      <p class="card-text">
+                        ${data.comment}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              `
               // popup modal, when closed clears form, shows review
             })
             .catch(err => console.log(err))
