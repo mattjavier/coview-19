@@ -57,7 +57,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
           businessId = `${business.id}`
           let businessElem = document.createElement('div')
           businessElem.innerHTML = `
-        <div id="${business.id}" class="card business">
+       <div id="${business.id}" class="card business">
       <h5 class="card-header row">
         <div class="businessHead col-12 col-sm-6">
           ${business.name} (${business.city}, ${business.state})
@@ -107,7 +107,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
                 <!-- modal header -->
                 <div class="modal-header bg-danger">
-                  <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review</h5>
+                  <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -137,14 +137,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                       <div class="col-sm-6">
                         <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
                         <select class="form-control" id="${business.id}businessType">
-                          <option selected>Choose...</option>
-                          <option>Populate</option>
-                          <option>With</option>
-                          <option>Business</option>
-                          <option>Types</option>
-                          <option>Using</option>
-                          <option>Javascript</option>
-                          <option>Other</option>
+                          <option value="${business.type}" selected>${business.type}</option>
                         </select>
                       </div>
                     </div>
@@ -155,7 +148,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                       <div class="form-group row">
                         <label for="city" class="col-sm-4 col-form-label">City:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" id="${business.id}city" placeholder="City Name">
+                          <input type="text" class="form-control" id="${business.id}city" value="${business.city}">
                         </div>
                       </div>
 
@@ -163,57 +156,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                         <label for="state" class="col-sm-4 col-form-label">State:</label>
                         <div class="col-sm-6">
                           <select class="form-control" id="${business.id}state">
-                            <option selected>Choose...</option>
-                            <option>AL</option>
-                            <option>AK</option>
-                            <option>AZ</option>
-                            <option>AR</option>
-                            <option>CA</option>
-                            <option>CO</option>
-                            <option>CT</option>
-                            <option>DE</option>
-                            <option>FL</option>
-                            <option>GA</option>
-                            <option>HI</option>
-                            <option>ID</option>
-                            <option>IL</option>
-                            <option>IN</option>
-                            <option>IA</option>
-                            <option>KS</option>
-                            <option>KY</option>
-                            <option>LA</option>
-                            <option>ME</option>
-                            <option>MD</option>
-                            <option>MA</option>
-                            <option>MI</option>
-                            <option>MN</option>
-                            <option>MS</option>
-                            <option>MO</option>
-                            <option>MT</option>
-                            <option>NE</option>
-                            <option>NV</option>
-                            <option>NH</option>
-                            <option>NJ</option>
-                            <option>NM</option>
-                            <option>NY</option>
-                            <option>NC</option>
-                            <option>ND</option>
-                            <option>OH</option>
-                            <option>OK</option>
-                            <option>OR</option>
-                            <option>PA</option>
-                            <option>RI</option>
-                            <option>SC</option>
-                            <option>SD</option>
-                            <option>TN</option>
-                            <option>TX</option>
-                            <option>UT</option>
-                            <option>VT</option>
-                            <option>VA</option>
-                            <option>WA</option>
-                            <option>WV</option>
-                            <option>WI</option>
-                            <option>WY</option>
+                            <option value="${business.state}">${business.state}</option>
                           </select>
                         </div>
                       </div>
@@ -298,7 +241,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                   <!-- close button -->
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   <!-- create log in button -->
-                  <a class="btn btn-custom" href="#" role="button">Submit</a>
+                  <a id="${business.id}submit" class="btn btn-custom" href="#" role="button">Submit</a>
                 </div>
               </div>
             </div>
@@ -402,7 +345,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
                 <!-- modal header -->
                 <div class="modal-header bg-danger">
-                  <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review</h5>
+                  <h5 class="modal-title" id="writeReview${business.id}ModalLabel">Write Review for ${business.name}</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -432,14 +375,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                       <div class="col-sm-6">
                         <!-- populate this list with some seeded business types. Include an "other" option perhaps? -->
                         <select class="form-control" id="${business.id}businessType">
-                          <option selected>Choose...</option>
-                          <option>Populate</option>
-                          <option>With</option>
-                          <option>Business</option>
-                          <option>Types</option>
-                          <option>Using</option>
-                          <option>Javascript</option>
-                          <option>Other</option>
+                          <option value="${business.type}" selected>${business.type}</option>
                         </select>
                       </div>
                     </div>
@@ -450,7 +386,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                       <div class="form-group row">
                         <label for="city" class="col-sm-4 col-form-label">City:</label>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" id="${business.id}city" placeholder="City Name">
+                          <input type="text" class="form-control" id="${business.id}city" value="${business.city}">
                         </div>
                       </div>
 
@@ -458,57 +394,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                         <label for="state" class="col-sm-4 col-form-label">State:</label>
                         <div class="col-sm-6">
                           <select class="form-control" id="${business.id}state">
-                            <option selected>Choose...</option>
-                            <option>AL</option>
-                            <option>AK</option>
-                            <option>AZ</option>
-                            <option>AR</option>
-                            <option>CA</option>
-                            <option>CO</option>
-                            <option>CT</option>
-                            <option>DE</option>
-                            <option>FL</option>
-                            <option>GA</option>
-                            <option>HI</option>
-                            <option>ID</option>
-                            <option>IL</option>
-                            <option>IN</option>
-                            <option>IA</option>
-                            <option>KS</option>
-                            <option>KY</option>
-                            <option>LA</option>
-                            <option>ME</option>
-                            <option>MD</option>
-                            <option>MA</option>
-                            <option>MI</option>
-                            <option>MN</option>
-                            <option>MS</option>
-                            <option>MO</option>
-                            <option>MT</option>
-                            <option>NE</option>
-                            <option>NV</option>
-                            <option>NH</option>
-                            <option>NJ</option>
-                            <option>NM</option>
-                            <option>NY</option>
-                            <option>NC</option>
-                            <option>ND</option>
-                            <option>OH</option>
-                            <option>OK</option>
-                            <option>OR</option>
-                            <option>PA</option>
-                            <option>RI</option>
-                            <option>SC</option>
-                            <option>SD</option>
-                            <option>TN</option>
-                            <option>TX</option>
-                            <option>UT</option>
-                            <option>VT</option>
-                            <option>VA</option>
-                            <option>WA</option>
-                            <option>WV</option>
-                            <option>WI</option>
-                            <option>WY</option>
+                            <option value="${business.state}">${business.state}</option>
                           </select>
                         </div>
                       </div>
@@ -593,7 +479,7 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                   <!-- close button -->
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   <!-- create log in button -->
-                  <a class="btn btn-custom" href="#" role="button">Submit</a>
+                  <a id="${business.id}submit" class="btn btn-custom" href="#" role="button">Submit</a>
                 </div>
               </div>
             </div>
