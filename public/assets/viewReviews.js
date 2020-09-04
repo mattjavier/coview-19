@@ -97,15 +97,12 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
   let businessId = ''
 
   let where = buildWhere(name, type, city, state)
-  console.log(where)
 
   // generic search handler
   axios.post(`/api/businesses/get`, where)
     .then(({ data }) => {
 
-      console.log(data)
       if (data.length === 0) {
-        console.log('empty')
         document.getElementById('noResults').classList.remove('d-none')
 
       } else {
@@ -397,7 +394,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                     businessId: business.id
                   })
                     .then(({ data }) => {
-                      console.log('submitted')
                       document.getElementById('reviewModalLabel').textContent = `Your review for ${data.business.name}`
   
                       document.getElementById('review').innerHTML = `
@@ -519,7 +515,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
           axios.get(`api/ratings/${business.id}`)
             .then(({ data }) => {
-              console.log(data)
               if (data.length === 0) {
                 document.getElementById(`${business.id}individualReviews`).innerText = "No reviews yet for this business."
                 document.getElementById(`${business.id}individualReviews`).classList.remove('card-columns')
@@ -571,7 +566,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                   document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
                   
                   setTimeout(() => {
-                    console.log('getting')
                     axios.get(`/api/ratings/avg-overall/${business.id}`)
                   .then(({ data }) => {
                     let rating
