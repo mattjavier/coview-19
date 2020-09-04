@@ -7,7 +7,7 @@ Pat Downer, Matthew Javier, Brian Ratunil, Danielle Hillman
 ## About
 
 COVIEW-19 is an application that allows users to review local businesses based on COVID-19 guidelines. Users can search through city, state, business type, or/ and business name.
-Reviewing a business includes rating the following: mask usage, social distancing, sanitization, overall rating and any comments specific to that business. Reviews will be connected to that businesses for all users to see.
+Reviewing a business includes rating the following: mask usage, social distancing, sanitization, overall rating and any comments specific to that business. Reviews will be connected to that business for all users to see.
 
 ## Images
 
