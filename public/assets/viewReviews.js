@@ -508,7 +508,6 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
                   }, 500)
                       document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
                       
-                      axios.get('/api/ratings')
                     })
                     .catch(err => console.log(err))
                 })
@@ -654,4 +653,139 @@ document.getElementById('srcBusiness').addEventListener('click', event => {
 
 })
 
+
+document.getElementById('noResultsWrite').addEventListener('click', () => {
+  axios.post('/api/businesses', {
+    name: document.getElementById('businessName').value,
+    type: document.getElementById('businessType').options[document.getElementById('businessType').selectedIndex].value,
+    city: document.getElementById('city').value,
+    state: document.getElementById('state').options[document.getElementById('state').selectedIndex].value
+  })
+    .then(({ data }) => {
+      axios.post('/api/ratings', {
+        name: document.getElementById('businessName').value,
+        type: document.getElementById('businessType').options[document.getElementById('businessType').selectedIndex].value,
+        username: document.getElementById('usernameNone').value,
+        overallRating: rateYojQuery('#overallRate').rateYo().rateYo('rating'),
+        maskRating: rateYojQuery('#maskUse').rateYo().rateYo('rating'),
+        sanitationRating: rateYojQuery('#sanitization').rateYo().rateYo('rating'),
+        socialDistanceRating: rateYojQuery('#socialDistancing').rateYo().rateYo('rating'),
+        comment: document.getElementById('comments').value,
+        businessId: data.id
+      })
+        .then(({ data }) => {
+          document.getElementById('reviewModalLabel').textContent = `Your review for ${data.business.name}`
+  
+                      document.getElementById('review').innerHTML = `
+                        <div class="card-deck text-secondary">
+                          <div class="card">
+                            <div class="card-header">
+                              ${data.username}
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Overall:</h5>
+                              <div class="col-sm-4">
+                                <div id="overallRev">Stars</div>
+                              </div>
+                              <hr>
+                              <div class="card-text">
+                                Mask Wearing: 
+                                <div class="col-sm-4">
+                                  <div id="maskRev">Stars</div>
+                                </div>
+                              </div>
+                              <div class="card-text">
+                                Sanitation Rating:
+                                <div class="col-sm-4">
+                                  <div id="sanitationRev">Stars</div>
+                                </div>
+                              </div>
+                              <div class="card-text">
+                                Social Distancing Rating: 
+                                <div class="col-sm-4">
+                                  <div id="socialRev">Stars</div>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="card-text">
+                                ${data.comment}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      `
+  
+                      setTimeout(() => {
+                        rateYojQuery("#maskRev").rateYo({
+                          rating: data.maskRating,
+                          readOnly: true
+                        })
+                      
+                        rateYojQuery("#socialRev").rateYo({
+                          rating: data.socialDistanceRating,
+                          readOnly: true
+                        })
+                      
+                        rateYojQuery("#sanitationRev").rateYo({
+                          rating: data.sanitationRating,
+                          readOnly: true
+                        })
+                      
+                        rateYojQuery("#overallRev").rateYo({
+                          rating: data.overallRating,
+                          readOnly: true
+                        })
+                      }, 500)
+
+                      let reviewElem = document.createElement('div')
+                      reviewElem.innerHTML = `
+                  <div class="card userReview">
+            <div class="card-header">
+              <i class="fas fa-user"></i> ${data.username}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Overall: <span id="ostars${data.id}">Stars</span></h5>
+              <hr class="border-danger">
+              <p class="card-text">Mask Wearing:<br><span id="mstars${data.id}">Stars</span></p>
+              <p class="card-text">Social Distancing:<br><span id="sdstars${data.id}">Stars</span></p>
+              <p class="card-text">Sanitation:<br> <span id="sstars${data.id}">span></p>
+              <hr class="border-danger">
+              <p class="card-text">${data.comment}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Created on ${moment(data.createdAt.substring(0, 10)).format('MM/DD/YYYY')}.</small>
+            </div>
+          </div>
+                  `
+                  document.getElementById('username').value = ''
+                  document.getElementById(`${business.id}individualReviews`).innerHTML = ''
+                  document.getElementById(`${business.id}individualReviews`).classList.add('card-columns')
+                  document.getElementById(`${business.id}individualReviews`).classList.add('bg-dark')
+                  setTimeout(() => {
+                    rateYojQuery(`#mstars${data.id}`).rateYo({
+                      rating: data.maskRating,
+                      readOnly: true
+                    })
+                  
+                    rateYojQuery(`#sdstars${data.id}`).rateYo({
+                      rating: data.socialDistanceRating,
+                      readOnly: true
+                    })
+                  
+                    rateYojQuery(`#sstars${data.id}`).rateYo({
+                      rating: data.sanitationRating,
+                      readOnly: true
+                    })
+                  
+                    rateYojQuery(`#ostars${data.id}`).rateYo({
+                      rating: data.overallRating,
+                      readOnly: true
+                    })
+                  }, 500)
+                      document.getElementById(`${business.id}individualReviews`).prepend(reviewElem)
+        })
+        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
+})
 // include jquery cdn and css

@@ -125,7 +125,6 @@ $(document).ready(function() {
             businessId: businessId 
           })
             .then(({ data }) => {
-              console.log(data)
               document.getElementById('reviewModalLabel').textContent = `Your review for ${data.business.name}`
 
               document.getElementById('review').innerHTML = `
@@ -212,7 +211,68 @@ $(document).ready(function() {
                 businessId: data.id
               })
                 .then(({ data }) => {
-                  console.log(data)
+                  document.getElementById('reviewModalLabel').textContent = `Your review for ${data.business.name}`
+
+                  document.getElementById('review').innerHTML = `
+                    <div class="card-deck text-secondary">
+                      <div class="card">
+                        <div class="card-header">
+                          ${data.username}
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Overall:</h5>
+                          <div class="col-sm-4">
+                            <div id="overallRev">Stars</div>
+                          </div>
+                          <hr>
+                          <div class="card-text">
+                            Mask Wearing: 
+                            <div class="col-sm-4">
+                              <div id="maskRev">Stars</div>
+                            </div>
+                          </div>
+                          <div class="card-text">
+                            Sanitation Rating:
+                            <div class="col-sm-4">
+                              <div id="sanitationRev">Stars</div>
+                            </div>
+                          </div>
+                          <div class="card-text">
+                            Social Distancing Rating: 
+                            <div class="col-sm-4">
+                              <div id="socialRev">Stars</div>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="card-text">
+                            ${data.comment}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `
+
+                  setTimeout(() => {
+                    rateYojQuery("#maskRev").rateYo({
+                      rating: data.maskRating,
+                      readOnly: true
+                    })
+                  
+                    rateYojQuery("#socialRev").rateYo({
+                      rating: data.socialDistanceRating,
+                      readOnly: true
+                    })
+                  
+                    rateYojQuery("#sanitationRev").rateYo({
+                      rating: data.sanitationRating,
+                      readOnly: true
+                    })
+                  
+                    rateYojQuery("#overallRev").rateYo({
+                      rating: data.overallRating,
+                      readOnly: true
+                    })
+                  }, 500)
                 })
                 .catch(err => console.log(err))
             })
